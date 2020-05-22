@@ -520,6 +520,60 @@ ContinuousConfigure/fast:
 	$(MAKE) -f CMakeFiles/ContinuousConfigure.dir/build.make CMakeFiles/ContinuousConfigure.dir/build
 .PHONY : ContinuousConfigure/fast
 
+date.o: date.cpp.o
+
+.PHONY : date.o
+
+# target to build an object file
+date.cpp.o:
+	$(MAKE) -f CMakeFiles/travellers_app.dir/build.make CMakeFiles/travellers_app.dir/date.cpp.o
+.PHONY : date.cpp.o
+
+date.i: date.cpp.i
+
+.PHONY : date.i
+
+# target to preprocess a source file
+date.cpp.i:
+	$(MAKE) -f CMakeFiles/travellers_app.dir/build.make CMakeFiles/travellers_app.dir/date.cpp.i
+.PHONY : date.cpp.i
+
+date.s: date.cpp.s
+
+.PHONY : date.s
+
+# target to generate assembly for a file
+date.cpp.s:
+	$(MAKE) -f CMakeFiles/travellers_app.dir/build.make CMakeFiles/travellers_app.dir/date.cpp.s
+.PHONY : date.cpp.s
+
+destination.o: destination.cpp.o
+
+.PHONY : destination.o
+
+# target to build an object file
+destination.cpp.o:
+	$(MAKE) -f CMakeFiles/travellers_app.dir/build.make CMakeFiles/travellers_app.dir/destination.cpp.o
+.PHONY : destination.cpp.o
+
+destination.i: destination.cpp.i
+
+.PHONY : destination.i
+
+# target to preprocess a source file
+destination.cpp.i:
+	$(MAKE) -f CMakeFiles/travellers_app.dir/build.make CMakeFiles/travellers_app.dir/destination.cpp.i
+.PHONY : destination.cpp.i
+
+destination.s: destination.cpp.s
+
+.PHONY : destination.s
+
+# target to generate assembly for a file
+destination.cpp.s:
+	$(MAKE) -f CMakeFiles/travellers_app.dir/build.make CMakeFiles/travellers_app.dir/destination.cpp.s
+.PHONY : destination.cpp.s
+
 lib/string.o: lib/string.cpp.o
 
 .PHONY : lib/string.o
@@ -574,6 +628,60 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/travellers_app.dir/build.make CMakeFiles/travellers_app.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+trip.o: trip.cpp.o
+
+.PHONY : trip.o
+
+# target to build an object file
+trip.cpp.o:
+	$(MAKE) -f CMakeFiles/travellers_app.dir/build.make CMakeFiles/travellers_app.dir/trip.cpp.o
+.PHONY : trip.cpp.o
+
+trip.i: trip.cpp.i
+
+.PHONY : trip.i
+
+# target to preprocess a source file
+trip.cpp.i:
+	$(MAKE) -f CMakeFiles/travellers_app.dir/build.make CMakeFiles/travellers_app.dir/trip.cpp.i
+.PHONY : trip.cpp.i
+
+trip.s: trip.cpp.s
+
+.PHONY : trip.s
+
+# target to generate assembly for a file
+trip.cpp.s:
+	$(MAKE) -f CMakeFiles/travellers_app.dir/build.make CMakeFiles/travellers_app.dir/trip.cpp.s
+.PHONY : trip.cpp.s
+
+user.o: user.cpp.o
+
+.PHONY : user.o
+
+# target to build an object file
+user.cpp.o:
+	$(MAKE) -f CMakeFiles/travellers_app.dir/build.make CMakeFiles/travellers_app.dir/user.cpp.o
+.PHONY : user.cpp.o
+
+user.i: user.cpp.i
+
+.PHONY : user.i
+
+# target to preprocess a source file
+user.cpp.i:
+	$(MAKE) -f CMakeFiles/travellers_app.dir/build.make CMakeFiles/travellers_app.dir/user.cpp.i
+.PHONY : user.cpp.i
+
+user.s: user.cpp.s
+
+.PHONY : user.s
+
+# target to generate assembly for a file
+user.cpp.s:
+	$(MAKE) -f CMakeFiles/travellers_app.dir/build.make CMakeFiles/travellers_app.dir/user.cpp.s
+.PHONY : user.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -614,12 +722,24 @@ help:
 	@echo "... NightlyCoverage"
 	@echo "... ExperimentalUpdate"
 	@echo "... ContinuousConfigure"
+	@echo "... date.o"
+	@echo "... date.i"
+	@echo "... date.s"
+	@echo "... destination.o"
+	@echo "... destination.i"
+	@echo "... destination.s"
 	@echo "... lib/string.o"
 	@echo "... lib/string.i"
 	@echo "... lib/string.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... trip.o"
+	@echo "... trip.i"
+	@echo "... trip.s"
+	@echo "... user.o"
+	@echo "... user.i"
+	@echo "... user.s"
 .PHONY : help
 
 

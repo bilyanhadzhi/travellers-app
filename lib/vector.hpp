@@ -1,7 +1,7 @@
 #ifndef VECTOR_HPP
 #define VECTOR_HPP
 
-#include "./constants.hpp"
+#include "../constants.hpp"
 #include <cassert>
 #include <iostream>
 

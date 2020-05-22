@@ -8,5 +8,25 @@
   "directory": "/home/bilyan/Coding/Projects/FMI/travellers_app/build",
   "command": "/usr/bin/g++    -g   -o CMakeFiles/travellers_app.dir/lib/string.cpp.o -c /home/bilyan/Coding/Projects/FMI/travellers_app/lib/string.cpp",
   "file": "/home/bilyan/Coding/Projects/FMI/travellers_app/lib/string.cpp"
+},
+{
+  "directory": "/home/bilyan/Coding/Projects/FMI/travellers_app/build",
+  "command": "/usr/bin/g++    -g   -o CMakeFiles/travellers_app.dir/destination.cpp.o -c /home/bilyan/Coding/Projects/FMI/travellers_app/destination.cpp",
+  "file": "/home/bilyan/Coding/Projects/FMI/travellers_app/destination.cpp"
+},
+{
+  "directory": "/home/bilyan/Coding/Projects/FMI/travellers_app/build",
+  "command": "/usr/bin/g++    -g   -o CMakeFiles/travellers_app.dir/trip.cpp.o -c /home/bilyan/Coding/Projects/FMI/travellers_app/trip.cpp",
+  "file": "/home/bilyan/Coding/Projects/FMI/travellers_app/trip.cpp"
+},
+{
+  "directory": "/home/bilyan/Coding/Projects/FMI/travellers_app/build",
+  "command": "/usr/bin/g++    -g   -o CMakeFiles/travellers_app.dir/user.cpp.o -c /home/bilyan/Coding/Projects/FMI/travellers_app/user.cpp",
+  "file": "/home/bilyan/Coding/Projects/FMI/travellers_app/user.cpp"
+},
+{
+  "directory": "/home/bilyan/Coding/Projects/FMI/travellers_app/build",
+  "command": "/usr/bin/g++    -g   -o CMakeFiles/travellers_app.dir/date.cpp.o -c /home/bilyan/Coding/Projects/FMI/travellers_app/date.cpp",
+  "file": "/home/bilyan/Coding/Projects/FMI/travellers_app/date.cpp"
 }
 ]

@@ -83,19 +83,79 @@ CMakeFiles/travellers_app.dir/lib/string.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/travellers_app.dir/lib/string.cpp.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bilyan/Coding/Projects/FMI/travellers_app/lib/string.cpp -o CMakeFiles/travellers_app.dir/lib/string.cpp.s
 
+CMakeFiles/travellers_app.dir/destination.cpp.o: CMakeFiles/travellers_app.dir/flags.make
+CMakeFiles/travellers_app.dir/destination.cpp.o: ../destination.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bilyan/Coding/Projects/FMI/travellers_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/travellers_app.dir/destination.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/travellers_app.dir/destination.cpp.o -c /home/bilyan/Coding/Projects/FMI/travellers_app/destination.cpp
+
+CMakeFiles/travellers_app.dir/destination.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/travellers_app.dir/destination.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bilyan/Coding/Projects/FMI/travellers_app/destination.cpp > CMakeFiles/travellers_app.dir/destination.cpp.i
+
+CMakeFiles/travellers_app.dir/destination.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/travellers_app.dir/destination.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bilyan/Coding/Projects/FMI/travellers_app/destination.cpp -o CMakeFiles/travellers_app.dir/destination.cpp.s
+
+CMakeFiles/travellers_app.dir/trip.cpp.o: CMakeFiles/travellers_app.dir/flags.make
+CMakeFiles/travellers_app.dir/trip.cpp.o: ../trip.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bilyan/Coding/Projects/FMI/travellers_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/travellers_app.dir/trip.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/travellers_app.dir/trip.cpp.o -c /home/bilyan/Coding/Projects/FMI/travellers_app/trip.cpp
+
+CMakeFiles/travellers_app.dir/trip.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/travellers_app.dir/trip.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bilyan/Coding/Projects/FMI/travellers_app/trip.cpp > CMakeFiles/travellers_app.dir/trip.cpp.i
+
+CMakeFiles/travellers_app.dir/trip.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/travellers_app.dir/trip.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bilyan/Coding/Projects/FMI/travellers_app/trip.cpp -o CMakeFiles/travellers_app.dir/trip.cpp.s
+
+CMakeFiles/travellers_app.dir/user.cpp.o: CMakeFiles/travellers_app.dir/flags.make
+CMakeFiles/travellers_app.dir/user.cpp.o: ../user.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bilyan/Coding/Projects/FMI/travellers_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/travellers_app.dir/user.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/travellers_app.dir/user.cpp.o -c /home/bilyan/Coding/Projects/FMI/travellers_app/user.cpp
+
+CMakeFiles/travellers_app.dir/user.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/travellers_app.dir/user.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bilyan/Coding/Projects/FMI/travellers_app/user.cpp > CMakeFiles/travellers_app.dir/user.cpp.i
+
+CMakeFiles/travellers_app.dir/user.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/travellers_app.dir/user.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bilyan/Coding/Projects/FMI/travellers_app/user.cpp -o CMakeFiles/travellers_app.dir/user.cpp.s
+
+CMakeFiles/travellers_app.dir/date.cpp.o: CMakeFiles/travellers_app.dir/flags.make
+CMakeFiles/travellers_app.dir/date.cpp.o: ../date.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bilyan/Coding/Projects/FMI/travellers_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/travellers_app.dir/date.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/travellers_app.dir/date.cpp.o -c /home/bilyan/Coding/Projects/FMI/travellers_app/date.cpp
+
+CMakeFiles/travellers_app.dir/date.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/travellers_app.dir/date.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bilyan/Coding/Projects/FMI/travellers_app/date.cpp > CMakeFiles/travellers_app.dir/date.cpp.i
+
+CMakeFiles/travellers_app.dir/date.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/travellers_app.dir/date.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bilyan/Coding/Projects/FMI/travellers_app/date.cpp -o CMakeFiles/travellers_app.dir/date.cpp.s
+
 # Object files for target travellers_app
 travellers_app_OBJECTS = \
 "CMakeFiles/travellers_app.dir/main.cpp.o" \
-"CMakeFiles/travellers_app.dir/lib/string.cpp.o"
+"CMakeFiles/travellers_app.dir/lib/string.cpp.o" \
+"CMakeFiles/travellers_app.dir/destination.cpp.o" \
+"CMakeFiles/travellers_app.dir/trip.cpp.o" \
+"CMakeFiles/travellers_app.dir/user.cpp.o" \
+"CMakeFiles/travellers_app.dir/date.cpp.o"
 
 # External object files for target travellers_app
 travellers_app_EXTERNAL_OBJECTS =
 
 travellers_app: CMakeFiles/travellers_app.dir/main.cpp.o
 travellers_app: CMakeFiles/travellers_app.dir/lib/string.cpp.o
+travellers_app: CMakeFiles/travellers_app.dir/destination.cpp.o
+travellers_app: CMakeFiles/travellers_app.dir/trip.cpp.o
+travellers_app: CMakeFiles/travellers_app.dir/user.cpp.o
+travellers_app: CMakeFiles/travellers_app.dir/date.cpp.o
 travellers_app: CMakeFiles/travellers_app.dir/build.make
 travellers_app: CMakeFiles/travellers_app.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/bilyan/Coding/Projects/FMI/travellers_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable travellers_app"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/bilyan/Coding/Projects/FMI/travellers_app/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable travellers_app"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/travellers_app.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

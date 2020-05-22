@@ -7,12 +7,20 @@ enable_testing()
 set(Sources
     main.cpp
     lib/string.cpp
+    destination.cpp
+    trip.cpp
+    user.cpp
+    date.cpp
 )
 
 set(Headers
     constants.hpp
     lib/string.hpp
     lib/vector.hpp
+    destination.hpp
+    trip.hpp
+    user.hpp
+    date.hpp
 )
 
 add_executable(travellers_app ${Sources} ${Headers})
