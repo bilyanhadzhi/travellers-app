@@ -1,0 +1,1 @@
+/usr/bin/g++  -g  -rdynamic CMakeFiles/travellers_app.dir/main.cpp.o CMakeFiles/travellers_app.dir/lib/string.cpp.o  -o travellers_app 

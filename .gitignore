@@ -30,3 +30,10 @@
 *.exe
 *.out
 *.app
+
+# doxygen
+html/
+latex/
+
+# dummy files
+random.txt

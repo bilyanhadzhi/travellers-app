@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/bilyan/Coding/Projects/FMI/travellers_app/constants.hpp
+
+/home/bilyan/Coding/Projects/FMI/travellers_app/lib/string.cpp
+cstring
+-
+cassert
+-
+string.hpp
+/home/bilyan/Coding/Projects/FMI/travellers_app/lib/string.hpp
+../constants.hpp
+/home/bilyan/Coding/Projects/FMI/travellers_app/constants.hpp
+
+/home/bilyan/Coding/Projects/FMI/travellers_app/lib/string.hpp
+iostream
+-
+
