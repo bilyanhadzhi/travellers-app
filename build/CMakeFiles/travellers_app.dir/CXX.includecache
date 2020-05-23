@@ -8,14 +8,34 @@
 
 /home/bilyan/Coding/Projects/FMI/travellers_app/constants.hpp
 
+/home/bilyan/Coding/Projects/FMI/travellers_app/database.hpp
+lib/string.hpp
+/home/bilyan/Coding/Projects/FMI/travellers_app/lib/string.hpp
+lib/vector.hpp
+/home/bilyan/Coding/Projects/FMI/travellers_app/lib/vector.hpp
+trip.hpp
+/home/bilyan/Coding/Projects/FMI/travellers_app/trip.hpp
+destination.hpp
+/home/bilyan/Coding/Projects/FMI/travellers_app/destination.hpp
+user.hpp
+/home/bilyan/Coding/Projects/FMI/travellers_app/user.hpp
+
 /home/bilyan/Coding/Projects/FMI/travellers_app/date.hpp
 
 /home/bilyan/Coding/Projects/FMI/travellers_app/destination.hpp
 lib/string.hpp
 /home/bilyan/Coding/Projects/FMI/travellers_app/lib/string.hpp
 
+/home/bilyan/Coding/Projects/FMI/travellers_app/io_handler.hpp
+lib/string.hpp
+/home/bilyan/Coding/Projects/FMI/travellers_app/lib/string.hpp
+lib/vector.hpp
+/home/bilyan/Coding/Projects/FMI/travellers_app/lib/vector.hpp
+
 /home/bilyan/Coding/Projects/FMI/travellers_app/lib/string.hpp
 iostream
+-
+string
 -
 
 /home/bilyan/Coding/Projects/FMI/travellers_app/lib/vector.hpp
@@ -41,6 +61,16 @@ lib/string.hpp
 /home/bilyan/Coding/Projects/FMI/travellers_app/lib/string.hpp
 lib/vector.hpp
 /home/bilyan/Coding/Projects/FMI/travellers_app/lib/vector.hpp
+travellers_app.hpp
+/home/bilyan/Coding/Projects/FMI/travellers_app/travellers_app.hpp
+
+/home/bilyan/Coding/Projects/FMI/travellers_app/travellers_app.hpp
+io_handler.hpp
+/home/bilyan/Coding/Projects/FMI/travellers_app/io_handler.hpp
+user.hpp
+/home/bilyan/Coding/Projects/FMI/travellers_app/user.hpp
+database.hpp
+/home/bilyan/Coding/Projects/FMI/travellers_app/database.hpp
 
 /home/bilyan/Coding/Projects/FMI/travellers_app/trip.hpp
 destination.hpp
@@ -49,10 +79,6 @@ date.hpp
 /home/bilyan/Coding/Projects/FMI/travellers_app/date.hpp
 lib/vector.hpp
 /home/bilyan/Coding/Projects/FMI/travellers_app/lib/vector.hpp
-
-/home/bilyan/Coding/Projects/FMI/travellers_app/user.cpp
-user.hpp
-/home/bilyan/Coding/Projects/FMI/travellers_app/user.hpp
 
 /home/bilyan/Coding/Projects/FMI/travellers_app/user.hpp
 lib/string.hpp

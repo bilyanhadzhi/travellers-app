@@ -4,6 +4,8 @@ project(travellers_app VERSION 0.1.0)
 include(CTest)
 enable_testing()
 
+link_libraries(bcrypt)
+
 set(Sources
     main.cpp
     lib/string.cpp
@@ -11,6 +13,9 @@ set(Sources
     trip.cpp
     user.cpp
     date.cpp
+    database.cpp
+    io_handler.cpp
+    travellers_app.cpp
 )
 
 set(Headers
@@ -21,6 +26,9 @@ set(Headers
     trip.hpp
     user.hpp
     date.hpp
+    database.hpp
+    io_handler.hpp
+    travellers_app.hpp
 )
 
 add_executable(travellers_app ${Sources} ${Headers})

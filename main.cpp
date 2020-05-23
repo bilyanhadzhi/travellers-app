@@ -5,6 +5,7 @@
 #include "user.hpp"
 #include "lib/string.hpp"
 #include "lib/vector.hpp"
+#include "travellers_app.hpp"
 
 void test_date();
 void test_destination();
@@ -16,9 +17,16 @@ int main(void)
 {
     // test_trip();
     // test_destination();
-    // test_user();
+    test_user();
+    // test_app();
 
     return 0;
+}
+
+void test_app()
+{
+    TravellersApp app;
+    app.run();
 }
 
 void test_trip()
@@ -34,5 +42,8 @@ void test_destination()
 
 void test_user()
 {
-    std::cout << sizeof(User) << "\n";
+    User user;
+
+    user.set_password("MyPassword5500");
+    std::cout << user.is_correct_password("MyPassword5500") << "\n";
 }

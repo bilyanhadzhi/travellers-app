@@ -2,6 +2,7 @@
 #define STRING_HPP
 
 #include <iostream>
+#include <string>
 
 class String
 {
@@ -20,6 +21,7 @@ public:
     String();
     String(const char* str);
     String(const String& other);
+    String(const std::string std_string);
     String& operator=(const String& other);
     //! Replace string value with str (frees old value)
     String& operator=(const char* str);
@@ -56,6 +58,8 @@ public:
     double to_double() const;
     //! Same like to_double, cast to int
     int to_int() const;
+    //! Get string value as const char*
+    const char* to_c_string() const;
 };
 
 std::ostream& operator<<(std::ostream& o_stream, const String& string);

@@ -42,7 +42,15 @@ String::String(const String& other)
     this->capacity = other.capacity;
     this->value = nullptr;
     this->set_value(other.value);
-    this->len = other.len;
+    assert(this->len == other.len);
+}
+
+String::String(const std::string std_string)
+{
+    this->capacity = this->get_needed_capacity(std_string.c_str());
+    this->value = nullptr;
+    this->set_value(std_string.c_str());
+    assert(this->len == std_string.length());
 }
 
 String& String::operator=(const String& other)
@@ -375,4 +383,9 @@ double String::to_double() const
 int String::to_int() const
 {
     return (int)this->to_double();
+}
+
+const char* String::to_c_string() const
+{
+    return this->value;
 }

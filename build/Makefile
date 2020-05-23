@@ -520,6 +520,33 @@ ContinuousConfigure/fast:
 	$(MAKE) -f CMakeFiles/ContinuousConfigure.dir/build.make CMakeFiles/ContinuousConfigure.dir/build
 .PHONY : ContinuousConfigure/fast
 
+database.o: database.cpp.o
+
+.PHONY : database.o
+
+# target to build an object file
+database.cpp.o:
+	$(MAKE) -f CMakeFiles/travellers_app.dir/build.make CMakeFiles/travellers_app.dir/database.cpp.o
+.PHONY : database.cpp.o
+
+database.i: database.cpp.i
+
+.PHONY : database.i
+
+# target to preprocess a source file
+database.cpp.i:
+	$(MAKE) -f CMakeFiles/travellers_app.dir/build.make CMakeFiles/travellers_app.dir/database.cpp.i
+.PHONY : database.cpp.i
+
+database.s: database.cpp.s
+
+.PHONY : database.s
+
+# target to generate assembly for a file
+database.cpp.s:
+	$(MAKE) -f CMakeFiles/travellers_app.dir/build.make CMakeFiles/travellers_app.dir/database.cpp.s
+.PHONY : database.cpp.s
+
 date.o: date.cpp.o
 
 .PHONY : date.o
@@ -574,6 +601,33 @@ destination.cpp.s:
 	$(MAKE) -f CMakeFiles/travellers_app.dir/build.make CMakeFiles/travellers_app.dir/destination.cpp.s
 .PHONY : destination.cpp.s
 
+io_handler.o: io_handler.cpp.o
+
+.PHONY : io_handler.o
+
+# target to build an object file
+io_handler.cpp.o:
+	$(MAKE) -f CMakeFiles/travellers_app.dir/build.make CMakeFiles/travellers_app.dir/io_handler.cpp.o
+.PHONY : io_handler.cpp.o
+
+io_handler.i: io_handler.cpp.i
+
+.PHONY : io_handler.i
+
+# target to preprocess a source file
+io_handler.cpp.i:
+	$(MAKE) -f CMakeFiles/travellers_app.dir/build.make CMakeFiles/travellers_app.dir/io_handler.cpp.i
+.PHONY : io_handler.cpp.i
+
+io_handler.s: io_handler.cpp.s
+
+.PHONY : io_handler.s
+
+# target to generate assembly for a file
+io_handler.cpp.s:
+	$(MAKE) -f CMakeFiles/travellers_app.dir/build.make CMakeFiles/travellers_app.dir/io_handler.cpp.s
+.PHONY : io_handler.cpp.s
+
 lib/string.o: lib/string.cpp.o
 
 .PHONY : lib/string.o
@@ -627,6 +681,33 @@ main.s: main.cpp.s
 main.cpp.s:
 	$(MAKE) -f CMakeFiles/travellers_app.dir/build.make CMakeFiles/travellers_app.dir/main.cpp.s
 .PHONY : main.cpp.s
+
+travellers_app.o: travellers_app.cpp.o
+
+.PHONY : travellers_app.o
+
+# target to build an object file
+travellers_app.cpp.o:
+	$(MAKE) -f CMakeFiles/travellers_app.dir/build.make CMakeFiles/travellers_app.dir/travellers_app.cpp.o
+.PHONY : travellers_app.cpp.o
+
+travellers_app.i: travellers_app.cpp.i
+
+.PHONY : travellers_app.i
+
+# target to preprocess a source file
+travellers_app.cpp.i:
+	$(MAKE) -f CMakeFiles/travellers_app.dir/build.make CMakeFiles/travellers_app.dir/travellers_app.cpp.i
+.PHONY : travellers_app.cpp.i
+
+travellers_app.s: travellers_app.cpp.s
+
+.PHONY : travellers_app.s
+
+# target to generate assembly for a file
+travellers_app.cpp.s:
+	$(MAKE) -f CMakeFiles/travellers_app.dir/build.make CMakeFiles/travellers_app.dir/travellers_app.cpp.s
+.PHONY : travellers_app.cpp.s
 
 trip.o: trip.cpp.o
 
@@ -722,18 +803,27 @@ help:
 	@echo "... NightlyCoverage"
 	@echo "... ExperimentalUpdate"
 	@echo "... ContinuousConfigure"
+	@echo "... database.o"
+	@echo "... database.i"
+	@echo "... database.s"
 	@echo "... date.o"
 	@echo "... date.i"
 	@echo "... date.s"
 	@echo "... destination.o"
 	@echo "... destination.i"
 	@echo "... destination.s"
+	@echo "... io_handler.o"
+	@echo "... io_handler.i"
+	@echo "... io_handler.s"
 	@echo "... lib/string.o"
 	@echo "... lib/string.i"
 	@echo "... lib/string.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... travellers_app.o"
+	@echo "... travellers_app.i"
+	@echo "... travellers_app.s"
 	@echo "... trip.o"
 	@echo "... trip.i"
 	@echo "... trip.s"

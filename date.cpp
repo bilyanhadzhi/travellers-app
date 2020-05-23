@@ -6,7 +6,7 @@ Date::Date()
 {
     this->day = 1;
     this->month = 1;
-    this->year = 2020;
+    this->year = 2000;
 }
 
 Date::Date(const char* date_string)
@@ -37,7 +37,7 @@ bool Date::set_date(const char* date_string)
 {
     if (!is_valid_date_string(date_string))
     {
-
+        return false;
     }
 }
 

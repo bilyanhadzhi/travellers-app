@@ -4,10 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/bilyan/Coding/Projects/FMI/travellers_app/database.cpp" "/home/bilyan/Coding/Projects/FMI/travellers_app/build/CMakeFiles/travellers_app.dir/database.cpp.o"
   "/home/bilyan/Coding/Projects/FMI/travellers_app/date.cpp" "/home/bilyan/Coding/Projects/FMI/travellers_app/build/CMakeFiles/travellers_app.dir/date.cpp.o"
   "/home/bilyan/Coding/Projects/FMI/travellers_app/destination.cpp" "/home/bilyan/Coding/Projects/FMI/travellers_app/build/CMakeFiles/travellers_app.dir/destination.cpp.o"
+  "/home/bilyan/Coding/Projects/FMI/travellers_app/io_handler.cpp" "/home/bilyan/Coding/Projects/FMI/travellers_app/build/CMakeFiles/travellers_app.dir/io_handler.cpp.o"
   "/home/bilyan/Coding/Projects/FMI/travellers_app/lib/string.cpp" "/home/bilyan/Coding/Projects/FMI/travellers_app/build/CMakeFiles/travellers_app.dir/lib/string.cpp.o"
   "/home/bilyan/Coding/Projects/FMI/travellers_app/main.cpp" "/home/bilyan/Coding/Projects/FMI/travellers_app/build/CMakeFiles/travellers_app.dir/main.cpp.o"
+  "/home/bilyan/Coding/Projects/FMI/travellers_app/travellers_app.cpp" "/home/bilyan/Coding/Projects/FMI/travellers_app/build/CMakeFiles/travellers_app.dir/travellers_app.cpp.o"
   "/home/bilyan/Coding/Projects/FMI/travellers_app/trip.cpp" "/home/bilyan/Coding/Projects/FMI/travellers_app/build/CMakeFiles/travellers_app.dir/trip.cpp.o"
   "/home/bilyan/Coding/Projects/FMI/travellers_app/user.cpp" "/home/bilyan/Coding/Projects/FMI/travellers_app/build/CMakeFiles/travellers_app.dir/user.cpp.o"
   )
