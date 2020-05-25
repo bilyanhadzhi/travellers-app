@@ -14,12 +14,15 @@ private:
     Vector<Destination> destinations;
     void copy_from(const Database& other);
     void free_memory();
+    bool load_destinations();
+    bool save_destinations();
 
 public:
     Database();
     Database(const Database& other);
     Database& operator=(const Database& other);
     ~Database();
+
     //! Get user from users.db by name
     User* get_user_by_username(const char* username) const;
     //! Get user from users.db by email

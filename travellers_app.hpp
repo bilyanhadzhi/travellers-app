@@ -12,7 +12,10 @@ private:
     IOHandler io_handler;
     void handle_command_register();
     void handle_command_log_in();
-
+    void handle_command_destinations();
+    void handle_command_my_trips();
+    void handle_command_add_trip();
+    void handle_command_help();
 public:
     //! Run app's main loop
     void run();

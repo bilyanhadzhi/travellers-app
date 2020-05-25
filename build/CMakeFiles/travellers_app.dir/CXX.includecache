@@ -46,7 +46,23 @@ cassert
 iostream
 -
 
-/home/bilyan/Coding/Projects/FMI/travellers_app/travellers_app.cpp
+/home/bilyan/Coding/Projects/FMI/travellers_app/main.cpp
+iostream
+-
+fstream
+-
+date.hpp
+/home/bilyan/Coding/Projects/FMI/travellers_app/date.hpp
+trip.hpp
+/home/bilyan/Coding/Projects/FMI/travellers_app/trip.hpp
+destination.hpp
+/home/bilyan/Coding/Projects/FMI/travellers_app/destination.hpp
+user.hpp
+/home/bilyan/Coding/Projects/FMI/travellers_app/user.hpp
+lib/string.hpp
+/home/bilyan/Coding/Projects/FMI/travellers_app/lib/string.hpp
+lib/vector.hpp
+/home/bilyan/Coding/Projects/FMI/travellers_app/lib/vector.hpp
 travellers_app.hpp
 /home/bilyan/Coding/Projects/FMI/travellers_app/travellers_app.hpp
 

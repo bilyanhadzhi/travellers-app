@@ -46,7 +46,7 @@ Database::~Database()
 User* Database::get_user_by_username(const char* username) const
 {
     String filename(DB_SUBDIR);
-    filename += FILENAME_USERS_DB;
+    filename += DB_FILENAME_USERS;
 
     std::ifstream if_stream(filename.to_c_string(), std::ios::binary);
 
@@ -84,7 +84,7 @@ User* Database::get_user_by_username(const char* username) const
 User* Database::get_user_by_email(const char* email) const
 {
     String filename(DB_SUBDIR);
-    filename += FILENAME_USERS_DB;
+    filename += DB_FILENAME_USERS;
 
     std::ifstream if_stream(filename.to_c_string(), std::ios::binary);
 
@@ -122,7 +122,7 @@ User* Database::get_user_by_email(const char* email) const
 bool Database::add_user(User user) const
 {
     String users_db_filename(DB_SUBDIR);
-    users_db_filename += FILENAME_USERS_DB;
+    users_db_filename += DB_FILENAME_USERS;
 
     std::ofstream users_file(users_db_filename.to_c_string(), std::ios::binary | std::ios::app);
 
@@ -166,5 +166,57 @@ bool Database::log_in(const char* username, const char* password)
     }
 
     this->curr_user = found_user;
+    return true;
+}
+
+bool Database::save_destinations()
+{
+    String dest_db_filename(DB_SUBDIR);
+    dest_db_filename += DB_FILENAME_DESTINATIONS;
+
+    std::ofstream of_stream(dest_db_filename.to_c_string(), std::ios::binary | std::ios::trunc);
+
+    if (!of_stream)
+    {
+        return false;
+    }
+
+    const int destinations_count = this->destinations.get_len();
+    for (size_t i = 0; i < destinations_count; ++i)
+    {
+        if (!this->destinations[i].write_to_bin(of_stream))
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+bool Database::load_destinations()
+{
+    String dest_db_filename(DB_SUBDIR);
+    dest_db_filename += DB_FILENAME_DESTINATIONS;
+
+    std::ifstream if_stream(dest_db_filename.to_c_string(), std::ios::binary);
+
+    if (!if_stream)
+    {
+        return false;
+    }
+
+    while (!if_stream.eof())
+    {
+        Destination dest;
+
+        if (!dest.read_from_bin(if_stream))
+        {
+            break;
+            return false;
+        }
+
+        this->destinations.push(dest);
+    }
+
     return true;
 }

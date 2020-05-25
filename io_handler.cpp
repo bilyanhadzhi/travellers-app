@@ -104,7 +104,16 @@ void IOHandler::print_message(String message, String prefix) const
 void IOHandler::print_usage(String command, String usage) const
 {
     std::cout << "Usage: ";
-    std::cout << command << " " << usage << std::endl;
+    std::cout << command;
+
+    if (usage.get_len() > 0)
+    {
+        std::cout << " " << usage << std::endl;
+    }
+    else
+    {
+        std::cout << " (no args)" << std::endl;
+    }
 }
 
 void IOHandler::print_error(String desc) const

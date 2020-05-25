@@ -4,6 +4,10 @@
 // Commands
 #define COMMAND_REGISTER        "register"
 #define COMMAND_LOG_IN          "log_in"
+#define COMMAND_DESTINATIONS    "destinations"
+#define COMMAND_MY_TRIPS        "my_trips"
+#define COMMAND_ADD_TRIP        "add_trip"
+#define COMMAND_HELP            "help"
 #define COMMAND_EXIT            "exit"
 
 // Commands usage
@@ -11,10 +15,11 @@
 #define USAGE_LOG_IN            "<username> <password>"
 
 // File names
-#define DB_SUBDIR               "db/"
-#define DB_USERS_SUBDIR         "db/users/"
-#define FILENAME_USERS_DB       "users.db"
-#define DB_EXTENSION            ".db"
+#define DB_SUBDIR                   "db/"
+#define DB_USERS_SUBDIR             "db/users/"
+#define DB_FILENAME_USERS           "users.db"
+#define DB_FILENAME_DESTINATIONS    "destinations.db"
+#define DB_EXTENSION                ".db"
 
 // Vector
 #define VECTOR_DEFAULT_CAPACITY 16

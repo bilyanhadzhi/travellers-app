@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include "date.hpp"
 #include "trip.hpp"
 #include "destination.hpp"
@@ -17,10 +18,10 @@ void test_string();
 int main(void)
 {
     // test_trip();
-    // test_destination();
+    test_destination();
     // test_user();
     // test_string();
-    test_app();
+    // test_app();
 
     return 0;
 }
@@ -39,7 +40,13 @@ void test_trip()
 
 void test_destination()
 {
-    std::cout << sizeof(Destination) << "\n";
+    Destination dest("Paris", 4.78, 64000);
+
+    String test_ofstream_file(DB_SUBDIR);
+    test_ofstream_file += DB_FILENAME_DESTINATIONS;
+    std::ofstream test_ofstream(test_ofstream_file.to_c_string(), std::ios::binary | std::ios::trunc);
+
+    dest.write_to_bin(test_ofstream);
 }
 
 void test_user()

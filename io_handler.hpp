@@ -28,7 +28,7 @@ public:
     //! Print shell prompt
     void print_prompt() const;
     //! Print usage of command
-    void print_usage(String command, String usage) const;
+    void print_usage(String command, String usage = "") const;
     //! Print error with description
     void print_error(String desc) const;
     //! Same as print error, but without the "Error: " prefix

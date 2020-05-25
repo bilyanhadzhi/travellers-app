@@ -15,6 +15,8 @@ CMakeFiles/travellers_app.dir/date.cpp.o: ../date.cpp
 CMakeFiles/travellers_app.dir/date.cpp.o: ../date.hpp
 
 CMakeFiles/travellers_app.dir/destination.cpp.o: ../destination.cpp
+CMakeFiles/travellers_app.dir/destination.cpp.o: ../destination.hpp
+CMakeFiles/travellers_app.dir/destination.cpp.o: ../lib/string.hpp
 
 CMakeFiles/travellers_app.dir/io_handler.cpp.o: ../constants.hpp
 CMakeFiles/travellers_app.dir/io_handler.cpp.o: ../io_handler.cpp

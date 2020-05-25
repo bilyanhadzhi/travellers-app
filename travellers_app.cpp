@@ -21,6 +21,22 @@ void TravellersApp::run()
         {
             this->handle_command_log_in();
         }
+        else if (command == COMMAND_DESTINATIONS)
+        {
+            this->handle_command_destinations();
+        }
+        else if (command == COMMAND_MY_TRIPS)
+        {
+            this->handle_command_my_trips();
+        }
+        else if (command == COMMAND_ADD_TRIP)
+        {
+            this->handle_command_add_trip();
+        }
+        else if (command == COMMAND_HELP)
+        {
+            this->handle_command_help();
+        }
         else if (command == COMMAND_EXIT)
         {
             this->io_handler.print_message("Bye! :)");
@@ -142,6 +158,46 @@ void TravellersApp::handle_command_log_in()
     else
     {
         this->io_handler.print_success("Logged in");
+        return;
+    }
+}
+
+void TravellersApp::handle_command_destinations()
+{
+    if (std::cin.peek() != '\n')
+    {
+        this->io_handler.input_args(std::cin);
+        this->io_handler.print_usage(COMMAND_DESTINATIONS);
+        std::cin.ignore();
+        return;
+    }
+
+
+}
+
+void TravellersApp::handle_command_my_trips()
+{
+    if (std::cin.peek() != '\n')
+    {
+        this->io_handler.input_args(std::cin);
+        this->io_handler.print_usage(COMMAND_MY_TRIPS);
+        std::cin.ignore();
+        return;
+    }
+}
+
+void TravellersApp::handle_command_add_trip()
+{
+
+}
+
+void TravellersApp::handle_command_help()
+{
+    if (std::cin.peek() != '\n')
+    {
+        this->io_handler.input_args(std::cin);
+        this->io_handler.print_usage(COMMAND_HELP);
+        std::cin.ignore();
         return;
     }
 }
