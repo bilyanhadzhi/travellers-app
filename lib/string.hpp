@@ -29,6 +29,10 @@ public:
     friend std::ostream& operator<<(std::ostream& o_stream, const String& string);
     //! Get string from input stream (i.e. cin)
     friend std::istream& operator>>(std::istream& i_stream, String& string);
+    //! Read into value from binary file
+    bool read_from_bin(std::ifstream& if_stream);
+    //! Write string to end of binary file, first length then value
+    bool write_to_bin(std::ofstream& of_stream) const;
     //! Check strings for equality by comparing C strings
     friend bool operator==(const String& left_string, const String& right_string);
     //! Check whether C string matches string value
@@ -45,6 +49,10 @@ public:
     char operator[](int i) const;
     //! Append character to string
     String& operator+=(const char new_char);
+    //! Append string to string
+    String& operator+=(const String to_append);
+    //! Append c-string to string
+    String& operator+=(const char* to_append);
     ~String();
     //! Set new value for string and update length (frees old value)
     void set_value(const char* value);

@@ -10,6 +10,12 @@
 #define USAGE_REGISTER          "<username> <email> <password>"
 #define USAGE_LOG_IN            "<username> <password>"
 
+// File names
+#define DB_SUBDIR               "db/"
+#define DB_USERS_SUBDIR         "db/users/"
+#define FILENAME_USERS_DB       "users.db"
+#define DB_EXTENSION            ".db"
+
 // Vector
 #define VECTOR_DEFAULT_CAPACITY 16
 

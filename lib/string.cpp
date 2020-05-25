@@ -1,5 +1,6 @@
 #include <cstring>
 #include <cassert>
+#include <fstream>
 #include "string.hpp"
 #include "../constants.hpp"
 
@@ -213,6 +214,55 @@ std::istream& operator>>(std::istream& i_stream, String& string)
     return i_stream;
 }
 
+bool String::read_from_bin(std::ifstream& if_stream)
+{
+    if (if_stream.eof())
+    {
+        return false;
+    }
+
+    int value_len;
+    if (!if_stream.read((char*)&value_len, sizeof(int)))
+    {
+        return false;
+    }
+
+    char* new_value = new char[value_len + 1];
+
+    if (!if_stream.read(new_value, value_len))
+    {
+        delete[] new_value;
+        return false;
+    }
+
+    new_value[value_len] = '\0';
+
+    this->set_value(new_value);
+
+    delete[] new_value;
+    return true;
+}
+
+bool String::write_to_bin(std::ofstream& of_stream) const
+{
+    if (this->len < 1)
+    {
+        return false;
+    }
+
+    if (!of_stream.write((char*)&this->len, sizeof(int)))
+    {
+        return false;
+    }
+
+    if (!of_stream.write(this->value, this->len))
+    {
+        return false;
+    }
+
+    return true;
+}
+
 bool operator==(const String& left_string, const String& right_string)
 {
     return strcmp(left_string.value, right_string.value) == 0;
@@ -245,16 +295,50 @@ bool operator!=(const char* c_string, const String& string)
 
 String& String::operator+=(const char new_char)
 {
+    if (new_char == '\0')
+    {
+        return *this;
+    }
+
     if (this->len + 1 >= this->capacity)
     {
         this->increase_capacity();
     }
 
-    this->value[len] = new_char;
+    this->value[len++] = new_char;
 
-    if (new_char != '\0')
+    return *this;
+}
+
+String& String::operator+=(const char* to_append)
+{
+    assert(to_append != nullptr);
+
+    const int to_append_len = strlen(to_append);
+    if (to_append_len < 1)
     {
-        ++len;
+        return *this;
+    }
+
+    for (int i = 0; i < to_append_len; ++i)
+    {
+        *this += to_append[i];
+    }
+
+    return *this;
+}
+
+String& String::operator+=(const String to_append)
+{
+    const int to_append_len = to_append.get_len();
+    if (to_append_len < 1)
+    {
+        return *this;
+    }
+
+    for (int i = 0; i < to_append_len; ++i)
+    {
+        *this += to_append[i];
     }
 
     return *this;

@@ -2,6 +2,23 @@
 #include <cctype>
 #include "bcrypt/BCrypt.hpp"
 
+User::User()
+{
+    this->username = "";
+    this->email = "";
+    this->password_hash = "";
+}
+
+User::User(String username, String email, String password)
+{
+    this->set_username(username);
+    this->set_email(email);
+    this->set_password(password);
+
+    this->load_trips();
+    this->load_friends();
+}
+
 bool User::is_valid_username(String username) const
 {
     bool is_valid = true;
@@ -103,8 +120,6 @@ bool User::set_password(String password)
 
     String hash = BCrypt::generateHash(password.to_c_string());
 
-    std::cout << hash << "\n";
-
     this->password_hash = hash;
     return true;
 }
@@ -122,7 +137,52 @@ bool User::set_email(String email)
     return true;
 }
 
+String User::get_username() const
+{
+    return this->username;
+}
+
+String User::get_email() const
+{
+    return this->email;
+}
+
+String User::get_password_hash() const
+{
+    return this->password_hash;
+}
+
+bool User::append_to_bin(std::ofstream& of_stream) const
+{
+    if (!this->username.write_to_bin(of_stream))
+    {
+        return false;
+    }
+
+    if (!this->email.write_to_bin(of_stream))
+    {
+        return false;
+    }
+
+    if (!this->password_hash.write_to_bin(of_stream))
+    {
+        return false;
+    }
+
+    return true;
+}
+
 bool User::is_correct_password(const char* password) const
 {
     return BCrypt::validatePassword(password, this->password_hash.to_c_string());
+}
+
+bool User::load_trips()
+{
+
+}
+
+bool User::load_friends()
+{
+
 }

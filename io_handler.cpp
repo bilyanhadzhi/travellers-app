@@ -88,6 +88,19 @@ void IOHandler::print_prompt() const
     std::cout << "(traveller's app) $ ";
 }
 
+void IOHandler::print_message(String message, String prefix) const
+{
+    if (prefix.get_len() > 0)
+    {
+        std::cout << prefix << ": ";
+    }
+
+    if (message.get_len() > 0)
+    {
+        std::cout << message << std::endl;
+    }
+}
+
 void IOHandler::print_usage(String command, String usage) const
 {
     std::cout << "Usage: ";
@@ -96,17 +109,21 @@ void IOHandler::print_usage(String command, String usage) const
 
 void IOHandler::print_error(String desc) const
 {
-    std::cout << "Error: ";
+    this->print_message(desc, "Error");
+}
+
+void IOHandler::print_error_explain(String desc) const
+{
+    std::cout << "       ";
     std::cout << desc << std::endl;
 }
 
 void IOHandler::print_unknown_command() const
 {
-    std::cout << "Unknown command. Type 'help' for a list of commands." << std::endl;
+    this->print_message("Unknown command. Type 'help' for a list of commands.");
 }
 
 void IOHandler::print_success(String message) const
 {
-    std::cout << "Success: ";
-    std::cout << message << std::endl;
+    this->print_message(message, "Success");
 }
