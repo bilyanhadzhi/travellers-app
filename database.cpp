@@ -3,9 +3,44 @@
 #include "database.hpp"
 #include "constants.hpp"
 
+
+void Database::copy_from(const Database& other)
+{
+    this->destinations = other.destinations;
+    this->curr_user = new User(*other.curr_user);
+}
+
+void Database::free_memory()
+{
+    delete this->curr_user;
+}
+
 Database::Database()
 {
+    this->curr_user = nullptr;
+}
 
+Database::Database(const Database& other)
+{
+    this->copy_from(other);
+}
+
+Database& Database::operator=(const Database& other)
+{
+    if (this == &other)
+    {
+        return *this;
+    }
+
+    this->free_memory();
+    this->copy_from(other);
+
+    return *this;
+}
+
+Database::~Database()
+{
+    this->free_memory();
 }
 
 User* Database::get_user_by_username(const char* username) const
@@ -107,10 +142,29 @@ bool Database::add_user(User user) const
     return result;
 }
 
-bool Database::register_user(User user) const
+User* Database::get_curr_user() const
 {
-    // add user to users.db
+    return this->curr_user;
+}
 
+bool Database::log_in(const char* username, const char* password)
+{
+    if (this->curr_user)
+    {
+        return false;
+    }
 
-    // make personal db file
+    User* found_user = this->get_user_by_username(username);
+    if (!found_user)
+    {
+        return false;
+    }
+
+    if (!found_user->is_correct_password(password))
+    {
+        return false;
+    }
+
+    this->curr_user = found_user;
+    return true;
 }

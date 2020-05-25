@@ -107,9 +107,8 @@ void TravellersApp::handle_command_register()
     if (!this->database.add_user(to_be_registered))
     {
         this->io_handler.print_error("User could not be registered");
+        return;
     }
-
-
 }
 
 void TravellersApp::handle_command_log_in()
@@ -122,10 +121,27 @@ void TravellersApp::handle_command_log_in()
     }
 
     this->io_handler.input_args(std::cin);
-
     if (!this->io_handler.check_number_of_arguments(2))
     {
         this->io_handler.print_usage(COMMAND_LOG_IN, USAGE_LOG_IN);
+        return;
+    }
+
+    if (this->database.get_curr_user())
+    {
+        this->io_handler.print_error("Another user is already logged in.");
+        return;
+    }
+
+    Vector<String> arguments = this->io_handler.get_args();
+    if (!this->database.log_in(arguments[0].to_c_string(), arguments[1].to_c_string()))
+    {
+        this->io_handler.print_error("No matching username/password for any user");
+        return;
+    }
+    else
+    {
+        this->io_handler.print_success("Logged in");
         return;
     }
 }

@@ -8,16 +8,6 @@
 
 /home/bilyan/Coding/Projects/FMI/travellers_app/constants.hpp
 
-/home/bilyan/Coding/Projects/FMI/travellers_app/database.cpp
-fstream
--
-cstring
--
-database.hpp
-/home/bilyan/Coding/Projects/FMI/travellers_app/database.hpp
-constants.hpp
-/home/bilyan/Coding/Projects/FMI/travellers_app/constants.hpp
-
 /home/bilyan/Coding/Projects/FMI/travellers_app/database.hpp
 lib/string.hpp
 /home/bilyan/Coding/Projects/FMI/travellers_app/lib/string.hpp
@@ -36,35 +26,11 @@ user.hpp
 lib/string.hpp
 /home/bilyan/Coding/Projects/FMI/travellers_app/lib/string.hpp
 
-/home/bilyan/Coding/Projects/FMI/travellers_app/io_handler.cpp
-iostream
--
-cstring
--
-io_handler.hpp
-/home/bilyan/Coding/Projects/FMI/travellers_app/io_handler.hpp
-lib/string.hpp
-/home/bilyan/Coding/Projects/FMI/travellers_app/lib/string.hpp
-constants.hpp
-/home/bilyan/Coding/Projects/FMI/travellers_app/constants.hpp
-
 /home/bilyan/Coding/Projects/FMI/travellers_app/io_handler.hpp
 lib/string.hpp
 /home/bilyan/Coding/Projects/FMI/travellers_app/lib/string.hpp
 lib/vector.hpp
 /home/bilyan/Coding/Projects/FMI/travellers_app/lib/vector.hpp
-
-/home/bilyan/Coding/Projects/FMI/travellers_app/lib/string.cpp
-cstring
--
-cassert
--
-fstream
--
-string.hpp
-/home/bilyan/Coding/Projects/FMI/travellers_app/lib/string.hpp
-../constants.hpp
-/home/bilyan/Coding/Projects/FMI/travellers_app/constants.hpp
 
 /home/bilyan/Coding/Projects/FMI/travellers_app/lib/string.hpp
 iostream
@@ -79,24 +45,6 @@ cassert
 -
 iostream
 -
-
-/home/bilyan/Coding/Projects/FMI/travellers_app/main.cpp
-iostream
--
-date.hpp
-/home/bilyan/Coding/Projects/FMI/travellers_app/date.hpp
-trip.hpp
-/home/bilyan/Coding/Projects/FMI/travellers_app/trip.hpp
-destination.hpp
-/home/bilyan/Coding/Projects/FMI/travellers_app/destination.hpp
-user.hpp
-/home/bilyan/Coding/Projects/FMI/travellers_app/user.hpp
-lib/string.hpp
-/home/bilyan/Coding/Projects/FMI/travellers_app/lib/string.hpp
-lib/vector.hpp
-/home/bilyan/Coding/Projects/FMI/travellers_app/lib/vector.hpp
-travellers_app.hpp
-/home/bilyan/Coding/Projects/FMI/travellers_app/travellers_app.hpp
 
 /home/bilyan/Coding/Projects/FMI/travellers_app/travellers_app.cpp
 travellers_app.hpp
@@ -117,14 +65,6 @@ date.hpp
 /home/bilyan/Coding/Projects/FMI/travellers_app/date.hpp
 lib/vector.hpp
 /home/bilyan/Coding/Projects/FMI/travellers_app/lib/vector.hpp
-
-/home/bilyan/Coding/Projects/FMI/travellers_app/user.cpp
-user.hpp
-/home/bilyan/Coding/Projects/FMI/travellers_app/user.hpp
-cctype
--
-bcrypt/BCrypt.hpp
-/home/bilyan/Coding/Projects/FMI/travellers_app/bcrypt/BCrypt.hpp
 
 /home/bilyan/Coding/Projects/FMI/travellers_app/user.hpp
 lib/string.hpp

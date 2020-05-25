@@ -18,9 +18,10 @@ private:
     bool is_valid_username(String username) const;
     bool load_trips();
     bool load_friends();
+    void set_password_hash(String password_hash);
 public:
     User();
-    User(String username, String email, String password);
+    User(String username, String email, String password_hash);
     //! Set new username for user (only if valid and free)
     bool set_username(String username);
     //! Set new email for user(only if valid)

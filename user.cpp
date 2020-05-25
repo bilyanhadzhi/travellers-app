@@ -9,11 +9,11 @@ User::User()
     this->password_hash = "";
 }
 
-User::User(String username, String email, String password)
+User::User(String username, String email, String password_hash)
 {
     this->set_username(username);
     this->set_email(email);
-    this->set_password(password);
+    this->set_password_hash(password_hash);
 
     this->load_trips();
     this->load_friends();
@@ -122,6 +122,11 @@ bool User::set_password(String password)
 
     this->password_hash = hash;
     return true;
+}
+
+void User::set_password_hash(String password_hash)
+{
+    this->password_hash = password_hash;
 }
 
 bool User::set_email(String email)
