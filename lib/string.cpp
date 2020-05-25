@@ -150,7 +150,7 @@ char String::operator[](int i) const
     return this->value[i];
 }
 
-void String::input(std::istream& i_stream, bool whole_line)
+void String::input(std::istream& i_stream, bool whole_line, char delim)
 {
     char curr_char;
     int string_len = 0;
@@ -181,7 +181,7 @@ void String::input(std::istream& i_stream, bool whole_line)
     {
         curr_char = i_stream.get();
 
-        if (!whole_line && curr_char == ' ')
+        if (!whole_line && curr_char == delim)
         {
             break;
         }

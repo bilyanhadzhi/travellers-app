@@ -56,8 +56,8 @@ public:
     ~String();
     //! Set new value for string and update length (frees old value)
     void set_value(const char* value);
-    //! Get from consone until newline (and/or until space, if second argument is true)
-    void input(std::istream& i_stream, bool whole_line = false);
+    //! Get from consone until newline (and/or until delim, if second argument is true)
+    void input(std::istream& i_stream, bool whole_line = false, char delim = ' ');
     //! Get length of string
     int get_len() const;
     //! Check if string could be converted to a number

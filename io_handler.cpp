@@ -121,6 +121,11 @@ void IOHandler::print_error(String desc) const
     this->print_message(desc, "Error");
 }
 
+void IOHandler::print_not_logged_in() const
+{
+    this->print_error("No user is currently logged in");
+}
+
 void IOHandler::print_error_explain(String desc) const
 {
     std::cout << "       ";

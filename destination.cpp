@@ -1,9 +1,11 @@
 #include <fstream>
+#include <cassert>
 #include "destination.hpp"
+#include "constants.hpp"
 
-Destination::Destination()
+Destination::Destination(String name)
 {
-    this->name = "";
+    this->name = name;
     this->acc_rating = 0.0;
     this->num_visits = 0;
 }
@@ -59,4 +61,60 @@ bool Destination::write_to_bin(std::ofstream& of_stream)
     }
 
     return true;
+}
+
+bool Destination::set_acc_rating(double acc_rating)
+{
+    assert(this->num_visits >= 0);
+
+    if (this->num_visits == 0)
+    {
+        this->acc_rating = 0;
+        return true;
+    }
+
+    if (acc_rating / num_visits < DEST_MIN_RATING || acc_rating / num_visits > DEST_MAX_RATING)
+    {
+        return false;
+    }
+
+    this->acc_rating = acc_rating;
+}
+
+bool Destination::set_num_visits(int num_visits)
+{
+    assert(num_visits >= 0);
+
+    this->num_visits = num_visits;
+}
+
+String Destination::get_name() const
+{
+    return this->name;
+}
+
+int Destination::get_num_visits() const
+{
+    return this->num_visits;
+}
+
+double Destination::get_avg_rating() const
+{
+    if (this->num_visits < 1)
+    {
+        return 0;
+    }
+
+    return this->acc_rating / this->num_visits;
+}
+
+bool Destination::add_visit(double rating)
+{
+    if (rating < DEST_MIN_RATING || rating > DEST_MAX_RATING)
+    {
+        return false;
+    }
+
+    this->acc_rating += rating;
+    this->num_visits++;
 }

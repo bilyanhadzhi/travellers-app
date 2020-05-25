@@ -18,6 +18,7 @@ void Database::free_memory()
 Database::Database()
 {
     this->curr_user = nullptr;
+    this->load_destinations();
 }
 
 Database::Database(const Database& other)
@@ -119,6 +120,28 @@ User* Database::get_user_by_email(const char* email) const
     return found_user;
 }
 
+Destination* Database::get_destination_by_name(const char* name) const
+{
+    const int destination_count = this->destinations.get_len();
+
+    Destination* found_destination = nullptr;
+
+    for (int i = 0; i < destination_count && !found_destination; ++i)
+    {
+        if (this->destinations[i].get_name() == name)
+        {
+            found_destination = &this->destinations[i];
+        }
+    }
+
+    return found_destination;
+}
+
+const Vector<Destination>& Database::get_destinations() const
+{
+    return this->destinations;
+}
+
 bool Database::add_user(User user) const
 {
     String users_db_filename(DB_SUBDIR);
@@ -169,7 +192,7 @@ bool Database::log_in(const char* username, const char* password)
     return true;
 }
 
-bool Database::save_destinations()
+bool Database::save_destinations() const
 {
     String dest_db_filename(DB_SUBDIR);
     dest_db_filename += DB_FILENAME_DESTINATIONS;
@@ -219,4 +242,18 @@ bool Database::load_destinations()
     }
 
     return true;
+}
+
+bool Database::add_destination(Destination dest)
+{
+    if (!this->get_destination_by_name(dest.get_name().to_c_string()))
+    {
+        this->destinations.push(dest);
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+
 }

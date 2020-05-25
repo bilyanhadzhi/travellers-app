@@ -25,6 +25,10 @@ void TravellersApp::run()
         {
             this->handle_command_destinations();
         }
+        else if (command == COMMAND_ADD_DESTINATION)
+        {
+            this->handle_command_add_destination();
+        }
         else if (command == COMMAND_MY_TRIPS)
         {
             this->handle_command_my_trips();
@@ -39,6 +43,7 @@ void TravellersApp::run()
         }
         else if (command == COMMAND_EXIT)
         {
+            this->database.save_destinations();
             this->io_handler.print_message("Bye! :)");
         }
         else
@@ -56,6 +61,11 @@ void TravellersApp::run()
         }
     }
     while (this->io_handler.get_command() != COMMAND_EXIT);
+}
+
+bool TravellersApp::is_logged_in()
+{
+    return this->database.get_curr_user() != nullptr;
 }
 
 void TravellersApp::handle_command_register()
@@ -76,6 +86,12 @@ void TravellersApp::handle_command_register()
     }
 
     Vector<String> arguments = this->io_handler.get_args();
+
+    if (this->is_logged_in())
+    {
+        this->io_handler.print_error("User currently logged in");
+        return;
+    }
 
     User to_be_registered;
 
@@ -143,9 +159,9 @@ void TravellersApp::handle_command_log_in()
         return;
     }
 
-    if (this->database.get_curr_user())
+    if (this->is_logged_in())
     {
-        this->io_handler.print_error("Another user is already logged in.");
+        this->io_handler.print_error("User currently logged in");
         return;
     }
 
@@ -167,12 +183,97 @@ void TravellersApp::handle_command_destinations()
     if (std::cin.peek() != '\n')
     {
         this->io_handler.input_args(std::cin);
-        this->io_handler.print_usage(COMMAND_DESTINATIONS);
+
+        if (!this->is_logged_in())
+        {
+            this->io_handler.print_not_logged_in();
+        }
+        else
+        {
+            this->io_handler.print_usage(COMMAND_DESTINATIONS);
+        }
+
         std::cin.ignore();
         return;
     }
 
+    if (!this->is_logged_in())
+    {
+        this->io_handler.print_not_logged_in();
+        return;
+    }
 
+    const Vector<Destination> all_destinations = this->database.get_destinations();
+    const int destination_count = all_destinations.get_len();
+
+    for (int i = 0; i < destination_count; ++i)
+    {
+        std::cout << all_destinations[i].get_name() << "\n";
+    }
+}
+
+void TravellersApp::handle_command_add_destination()
+{
+    if (std::cin.peek() == '\n')
+    {
+        if (!this->is_logged_in())
+        {
+            this->io_handler.print_not_logged_in();
+        }
+        else
+        {
+            this->io_handler.print_usage(COMMAND_ADD_DESTINATION, USAGE_ADD_DESTINATION);
+        }
+
+        std::cin.ignore();
+        return;
+    }
+
+    bool is_logged_in = this->is_logged_in();
+
+    String dest_name;
+
+    if (std::cin.peek() == '"')
+    {
+        std::cin.get();
+        dest_name.input(std::cin, false, '\"');
+
+        if (!is_logged_in)
+        {
+            this->io_handler.print_not_logged_in();
+            return;
+        }
+    }
+    else
+    {
+        this->io_handler.input_args(std::cin);
+
+        if (!is_logged_in)
+        {
+            this->io_handler.print_not_logged_in();
+            return;
+        }
+
+        if (!this->io_handler.check_number_of_arguments(1))
+        {
+            this->io_handler.print_usage(COMMAND_ADD_DESTINATION, USAGE_ADD_DESTINATION);
+            return;
+        }
+
+        Vector<String> arguments = this->io_handler.get_args();
+
+        dest_name = arguments[0];
+    }
+
+    Destination* existing_destination = this->database.get_destination_by_name(dest_name.to_c_string());
+    if (existing_destination)
+    {
+        this->io_handler.print_error("Destination already exists");
+        return;
+    }
+
+    Destination new_dest(dest_name);
+    this->database.add_destination(new_dest);
 }
 
 void TravellersApp::handle_command_my_trips()
@@ -180,8 +281,23 @@ void TravellersApp::handle_command_my_trips()
     if (std::cin.peek() != '\n')
     {
         this->io_handler.input_args(std::cin);
-        this->io_handler.print_usage(COMMAND_MY_TRIPS);
+
+        if (!this->is_logged_in())
+        {
+            this->io_handler.print_not_logged_in();
+        }
+        else
+        {
+            this->io_handler.print_usage(COMMAND_MY_TRIPS);
+        }
+
         std::cin.ignore();
+        return;
+    }
+
+    if (!this->is_logged_in())
+    {
+        this->io_handler.print_not_logged_in();
         return;
     }
 }

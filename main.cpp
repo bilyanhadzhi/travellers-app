@@ -18,10 +18,10 @@ void test_string();
 int main(void)
 {
     // test_trip();
-    test_destination();
+    // test_destination();
     // test_user();
     // test_string();
-    // test_app();
+    test_app();
 
     return 0;
 }
@@ -59,9 +59,9 @@ void test_user()
 
 void test_string()
 {
-    String my_string("hello");
+    String my_string;
 
-    my_string += " world";
+    my_string.input(std::cin, false, '\"');
 
     std::cout << my_string << "\n";
 }

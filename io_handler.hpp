@@ -31,6 +31,8 @@ public:
     void print_usage(String command, String usage = "") const;
     //! Print error with description
     void print_error(String desc) const;
+    //! Print that there is no logged in user
+    void print_not_logged_in() const;
     //! Same as print error, but without the "Error: " prefix
     void print_error_explain(String desc) const;
     //! Print unknown command
