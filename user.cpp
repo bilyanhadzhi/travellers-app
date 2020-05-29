@@ -182,6 +182,11 @@ bool User::is_correct_password(const char* password) const
     return BCrypt::validatePassword(password, this->password_hash.to_c_string());
 }
 
+void User::add_trip(const Trip trip)
+{
+    this->trips.push(trip);
+}
+
 bool User::load_trips()
 {
 

@@ -257,3 +257,8 @@ bool Database::add_destination(Destination dest)
     }
 
 }
+
+void Database::add_trip_curr_user(Trip trip)
+{
+    this->curr_user->add_trip(trip);
+}

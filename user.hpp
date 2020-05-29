@@ -38,6 +38,8 @@ public:
     bool append_to_bin(std::ofstream& of_stream) const;
     //! Return whether password matches user's
     bool is_correct_password(const char* password) const;
+    //! Add trip
+    void add_trip(const Trip trip);
 };
 
 #endif // USER_HPP

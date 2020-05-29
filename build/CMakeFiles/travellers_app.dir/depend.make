@@ -13,6 +13,7 @@ CMakeFiles/travellers_app.dir/database.cpp.o: ../user.hpp
 
 CMakeFiles/travellers_app.dir/date.cpp.o: ../date.cpp
 CMakeFiles/travellers_app.dir/date.cpp.o: ../date.hpp
+CMakeFiles/travellers_app.dir/date.cpp.o: ../lib/string.hpp
 
 CMakeFiles/travellers_app.dir/destination.cpp.o: ../constants.hpp
 CMakeFiles/travellers_app.dir/destination.cpp.o: ../destination.cpp
@@ -53,7 +54,13 @@ CMakeFiles/travellers_app.dir/travellers_app.cpp.o: ../travellers_app.hpp
 CMakeFiles/travellers_app.dir/travellers_app.cpp.o: ../trip.hpp
 CMakeFiles/travellers_app.dir/travellers_app.cpp.o: ../user.hpp
 
+CMakeFiles/travellers_app.dir/trip.cpp.o: ../constants.hpp
+CMakeFiles/travellers_app.dir/trip.cpp.o: ../date.hpp
+CMakeFiles/travellers_app.dir/trip.cpp.o: ../destination.hpp
+CMakeFiles/travellers_app.dir/trip.cpp.o: ../lib/string.hpp
+CMakeFiles/travellers_app.dir/trip.cpp.o: ../lib/vector.hpp
 CMakeFiles/travellers_app.dir/trip.cpp.o: ../trip.cpp
+CMakeFiles/travellers_app.dir/trip.cpp.o: ../trip.hpp
 
 CMakeFiles/travellers_app.dir/user.cpp.o: ../constants.hpp
 CMakeFiles/travellers_app.dir/user.cpp.o: ../date.hpp

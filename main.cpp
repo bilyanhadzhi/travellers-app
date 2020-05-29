@@ -21,6 +21,7 @@ int main(void)
     // test_destination();
     // test_user();
     // test_string();
+    // test_date();
     test_app();
 
     return 0;
@@ -32,10 +33,16 @@ void test_app()
     app.run();
 }
 
+void test_date()
+{
+    Date new_date("1995-01-01");
+
+    return;
+}
+
 void test_trip()
 {
-    Trip trip1;
-    std::cout << sizeof(Trip) << "\n";
+    // std::cout << sizeof(Trip) << "\n";
 }
 
 void test_destination()

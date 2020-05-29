@@ -13,10 +13,10 @@ private:
     Date start_date;
     Date end_date;
     Destination* destination;
-    double rating;
+    int rating;
 
 public:
-
+    Trip(Destination* destination, Date start_date, Date end_date, int rating, String comment, Vector<String> photos);
 };
 
 #endif // TRIP_HPP

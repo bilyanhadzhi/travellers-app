@@ -21,7 +21,6 @@ public:
     Database(const Database& other);
     Database& operator=(const Database& other);
     ~Database();
-
     //! Get user from users.db by name
     User* get_user_by_username(const char* username) const;
     //! Get user from users.db by email
@@ -40,6 +39,8 @@ public:
     bool save_destinations() const;
     //! Add new destination to local vector; will be saved to file at close
     bool add_destination(Destination dest);
+    //! Add new trip for logged-in user
+    void add_trip_curr_user(Trip trip);
 
 };
 

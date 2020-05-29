@@ -1,4 +1,9 @@
+#include <cstring>
+#include <cctype>
 #include "travellers_app.hpp"
+#include "date.hpp"
+
+bool is_valid_img_filename(const char* filename);
 
 void TravellersApp::run()
 {
@@ -304,7 +309,287 @@ void TravellersApp::handle_command_my_trips()
 
 void TravellersApp::handle_command_add_trip()
 {
+    if (std::cin.peek() != '\n')
+    {
+        this->io_handler.input_args(std::cin);
 
+        if (!this->is_logged_in())
+        {
+            this->io_handler.print_not_logged_in();
+        }
+        else
+        {
+            this->io_handler.print_message("'add_trip' is an interactive command. Just type in 'add_trip'");
+        }
+        return;
+    }
+
+    std::cin.ignore();
+    if (!this->is_logged_in())
+    {
+        this->io_handler.print_not_logged_in();
+        return;
+    }
+
+    Destination* found_destination = nullptr;
+    int failed_tries = 0;
+
+    String dest;
+    do
+    {
+        if (failed_tries > 1)
+        {
+            std::cout << "Do you wish to go back? (y/n) ";
+            char ans;
+            std::cin >> ans;
+
+            if (ans == 'y')
+            {
+                return;
+            }
+        }
+
+        std::cout << "Enter destination: ";
+        if (std::cin.peek() == '\n')
+        {
+            std::cin.ignore();
+        }
+
+        dest.input(std::cin, true, '\n');
+        found_destination = this->database.get_destination_by_name(dest.to_c_string());
+
+        if (!found_destination)
+        {
+            this->io_handler.print_error("Destination does not exist");
+            ++failed_tries;
+        }
+    }
+    while (found_destination == nullptr);
+
+    String start_date_string;
+    Date start_date;
+
+    bool date_is_set = false;
+    failed_tries = 0;
+    do
+    {
+        std::cin.ignore();
+        int day, month, year;
+
+        if (failed_tries > 1)
+        {
+            std::cout << "Do you wish to go back? (y/n) ";
+            char ans;
+            std::cin >> ans;
+
+            if (ans == 'y')
+            {
+                return;
+            }
+        }
+
+        std::cout << "Enter start date: (YYYY-MM-DD): ";
+        std::cin >> start_date_string;
+
+        if (!start_date.is_valid_date_string(start_date_string.to_c_string()))
+        {
+            this->io_handler.print_message("Invalid date string");
+            ++failed_tries;
+            continue;
+        }
+
+        failed_tries = 0;
+        if (!start_date.set_date(start_date_string.to_c_string()))
+        {
+            this->io_handler.print_message("Invalid date");
+            ++failed_tries;
+            continue;
+        }
+        else
+        {
+            date_is_set = true;
+        }
+    }
+    while (!date_is_set);
+
+    String end_date_string;
+    Date end_date;
+
+    date_is_set = false;
+    failed_tries = 0;
+    do
+    {
+        std::cin.ignore();
+        int day, month, year;
+
+        if (failed_tries > 1)
+        {
+            std::cout << "Do you wish to go back? (y/n) ";
+            char ans;
+            std::cin >> ans;
+
+            if (ans == 'y')
+            {
+                return;
+            }
+        }
+
+        std::cout << "Enter end date: (YYYY-MM-DD): ";
+        std::cin >> end_date_string;
+
+        if (!end_date.is_valid_date_string(end_date_string.to_c_string()))
+        {
+            this->io_handler.print_message("Invalid date string");
+            ++failed_tries;
+            continue;
+        }
+
+        if (!end_date.set_date(end_date_string.to_c_string()))
+        {
+            this->io_handler.print_message("Invalid date");
+            ++failed_tries;
+            continue;
+        }
+        else if (end_date < start_date)
+        {
+            this->io_handler.print_message("End date cannot be earlier than start date");
+            ++failed_tries;
+            continue;
+        }
+        else
+        {
+            date_is_set = true;
+        }
+    }
+    while (!date_is_set);
+
+    int rating = -1;
+    failed_tries = 0;
+    do
+    {
+        if (failed_tries > 1)
+        {
+            std::cout << "Do you wish to go back? (y/n) ";
+            char ans;
+            std::cin >> ans;
+
+            if (ans == 'y')
+            {
+                return;
+            }
+        }
+
+        std::cout << "Enter rating: [1-5]: ";
+        std::cin >> rating;
+
+        if (rating < DEST_MIN_RATING || rating > DEST_MAX_RATING)
+        {
+            this->io_handler.print_error("Rating not valid");
+            ++failed_tries;
+        }
+        std::cin.ignore();
+    }
+    while (rating < DEST_MIN_RATING || rating > DEST_MAX_RATING);
+
+    String comment = "";
+
+    std::cout << "Enter comment (leave empty for no comment): ";
+    comment.input(std::cin, true, '\n');
+
+    bool photos_entered = false;
+    Vector<String> photo_filenames;
+    do
+    {
+        if (failed_tries > 1)
+        {
+            std::cout << "Do you wish to go back? (y/n) ";
+            char ans;
+            std::cin >> ans;
+
+            if (ans == 'y')
+            {
+                return;
+            }
+        }
+
+        if (std::cin.peek() == '\n')
+        {
+            std::cin.ignore();
+        }
+
+        std::cout << "Enter photo filenames (leave empty for no photos): ";
+        this->io_handler.input_args(std::cin);
+
+        photo_filenames = this->io_handler.get_args();
+        const int photos_count = photo_filenames.get_len();
+
+        failed_tries = 0;
+        for (int i = 0; i < photos_count; ++i)
+        {
+            if (!is_valid_img_filename(photo_filenames[i].to_c_string()))
+            {
+                std::cout << "File " << photo_filenames[i] << " has invalid filename\n";
+                ++failed_tries;
+            }
+        }
+
+        if (failed_tries > 1)
+        {
+            continue;
+        }
+        photos_entered = true;
+    }
+    while (!photos_entered);
+
+    Trip new_trip(found_destination, start_date, end_date, rating, comment, photo_filenames);
+    this->database.add_trip_curr_user(new_trip);
+    this->io_handler.print_success("Trip added successfully");
+}
+
+// helper function
+bool is_valid_img_filename(const char* filename)
+{
+    String extension;
+    const int filename_len = strlen(filename);
+
+    if (filename_len < 4)
+    {
+        return false;
+    }
+
+    // find beginning of extension
+    int last_dot_index;
+    int i = filename_len - 1;
+    while (filename[i] != '.')
+    {
+        --i;
+    }
+
+    last_dot_index = i;
+
+    for (i = last_dot_index + 1; i < filename_len; ++i)
+    {
+        extension += filename[i];
+    }
+
+    for (int j = 0; j < filename_len; ++j)
+    {
+        if (!isalpha(filename[j]) && filename[j] != '_')
+        {
+            if (filename[j] == '.' && j == last_dot_index)
+            {
+                continue;
+            }
+            return false;
+        }
+    }
+
+    if (extension != "jpg" && extension != "jpeg" && extension != "png")
+    {
+        return false;
+    }
+
+    return true;
 }
 
 void TravellersApp::handle_command_help()
