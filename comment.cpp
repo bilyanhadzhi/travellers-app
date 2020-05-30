@@ -15,3 +15,13 @@ bool Comment::read_from_bin(std::ifstream& if_stream)
 {
     return this->value.read_from_bin(if_stream) && this->from.read_from_bin(if_stream);
 }
+
+String Comment::get_value() const
+{
+    return this->value;
+}
+
+String Comment::get_from() const
+{
+    return this->from;
+}

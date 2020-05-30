@@ -262,3 +262,37 @@ bool Date::set_date(int day, int month, int year)
     this->year = year;
     return true;
 }
+
+std::ostream& operator<<(std::ostream& o_stream, const Date& date)
+{
+    if (date.get_year() < 10)
+    {
+        o_stream << "000";
+    }
+    else if (date.get_year() < 100)
+    {
+        o_stream << "00";
+    }
+    else if (date.get_year() < 1000)
+    {
+        o_stream << "0";
+    }
+
+    o_stream << date.get_year() << "-";
+
+    if (date.get_month() < 10)
+    {
+        o_stream << "0";
+    }
+
+    o_stream << date.get_month() << "-";
+
+    if (date.get_day() < 10)
+    {
+        o_stream << "0";
+    }
+
+    o_stream << date.get_day();
+
+    return o_stream;
+}

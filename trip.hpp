@@ -1,6 +1,7 @@
 #ifndef TRIP_HPP
 #define TRIP_HPP
 
+#include <iostream>
 #include <fstream>
 #include "destination.hpp"
 #include "date.hpp"
@@ -22,6 +23,14 @@ public:
     Trip(std::ifstream& if_stream);
     bool write_to_bin(std::ofstream& if_stream);
     bool read_from_bin(std::ifstream& of_stream);
+    Comment get_comment() const;
+    Vector<String> get_photo_names() const;
+    Date get_start_date() const;
+    Date get_end_date() const;
+    String get_destination_name() const;
+    int get_rating() const;
 };
+
+std::ostream& operator<<(std::ostream& o_stream, const Trip& trip);
 
 #endif // TRIP_HPP

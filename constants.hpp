@@ -36,6 +36,9 @@
 // General buffer size
 #define BUFFER_SIZE 256
 
+#define PRINT_MAX_DESC_LEN 50
+#define PRINT_MAX_PHOTO_NAMES_LEN 30
+
 // Validation constants
 #define MAX_USERNAME_LEN 64
 #define MIN_PASSWORD_LEN 10

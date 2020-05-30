@@ -147,10 +147,7 @@ bool Database::add_user(User user) const
     String users_db_filename(DB_SUBDIR);
     users_db_filename += DB_FILENAME_USERS;
 
-    std::ofstream users_file(users_db_filename.to_c_string(), std::ios::binary);
-    users_file.seekp(std::ios::beg);
-
-
+    std::ofstream users_file(users_db_filename.to_c_string(), std::ios::binary | std::ios::app);
 
     if (!users_file)
     {

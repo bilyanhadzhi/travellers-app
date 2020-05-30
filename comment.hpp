@@ -12,4 +12,6 @@ public:
     bool write_to_bin(std::ofstream& of_stream);
     //! Read comment string and username of poster
     bool read_from_bin(std::ifstream& if_stream);
+    String get_value() const;
+    String get_from() const;
 };

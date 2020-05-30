@@ -1,5 +1,7 @@
+#include <iostream>
 #include <fstream>
 #include <cassert>
+#include <iomanip>
 #include "trip.hpp"
 
 Trip::Trip(String dest_name, Date start_date, Date end_date, int rating, Comment comment, Vector<String> photos):
@@ -72,4 +74,76 @@ bool Trip::read_from_bin(std::ifstream& if_stream)
     }
 
     return if_stream ? true : false;
+}
+
+Comment Trip::get_comment() const
+{
+    return this->comment;
+}
+
+Vector<String> Trip::get_photo_names() const
+{
+    return this->photo_names;
+}
+
+Date Trip::get_start_date() const
+{
+    return this->start_date;
+}
+
+Date Trip::get_end_date() const
+{
+    return this->end_date;
+}
+
+String Trip::get_destination_name() const
+{
+    return this->destination_name;
+}
+
+int Trip::get_rating() const
+{
+    return this->rating;
+}
+
+std::ostream& operator<<(std::ostream& o_stream, const Trip& trip)
+{
+    o_stream << std::left << std::setw(25) << trip.get_destination_name() << " | ";
+    o_stream << std::right << std::setw(5) << trip.get_start_date() << " – " << trip.get_end_date() << " | ";
+    o_stream << std::setw(3) << trip.get_rating() << "/" << DEST_MAX_RATING << " | ";
+
+    String comment = trip.get_comment().get_value();
+    const int comment_len = comment.get_len();
+    if (comment_len > PRINT_MAX_DESC_LEN)
+    {
+        o_stream.write(trip.get_comment().get_value().to_c_string(), PRINT_MAX_DESC_LEN - 4);
+        o_stream << " ... | ";
+    }
+    else
+    {
+        o_stream << std::left << std::setw(PRINT_MAX_DESC_LEN) << trip.get_comment().get_value() << " | ";
+    }
+
+    Vector<String> photo_names = trip.get_photo_names();
+    const int photo_names_count = photo_names.get_len();
+
+    String photo_names_output;
+
+    for (int i = 0; i < photo_names_count; ++i)
+    {
+        photo_names_output += photo_names[i];
+        photo_names_output += " ";
+    }
+
+if (photo_names_output.get_len() > PRINT_MAX_PHOTO_NAMES_LEN)
+    {
+        o_stream.write(photo_names_output.to_c_string(), PRINT_MAX_PHOTO_NAMES_LEN - 4);
+        o_stream << " ... | ";
+    }
+    else
+    {
+        o_stream << std::left << std::setw(PRINT_MAX_PHOTO_NAMES_LEN) << photo_names_output << " |";
+    }
+
+    return o_stream;
 }

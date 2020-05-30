@@ -292,6 +292,8 @@ void TravellersApp::handle_command_add_destination()
 
     Destination new_dest(dest_name);
     this->database.add_destination(new_dest);
+
+    this->io_handler.print_success("Destination added");
 }
 
 void TravellersApp::handle_command_my_trips()
@@ -317,6 +319,20 @@ void TravellersApp::handle_command_my_trips()
     {
         this->io_handler.print_not_logged_in();
         return;
+    }
+
+    const Vector<Trip> user_trips = this->database.get_curr_user()->get_trips();
+    const int trips_count = user_trips.get_len();
+
+    if (trips_count < 1)
+    {
+        this->io_handler.print_message("No trips");
+        return;
+    }
+
+    for (int i = 0; i < trips_count; ++i)
+    {
+        std::cout << user_trips[i] << "\n";
     }
 }
 

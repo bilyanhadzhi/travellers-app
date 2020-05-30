@@ -159,6 +159,8 @@ String User::get_password_hash() const
 
 bool User::append_to_bin(std::ofstream& of_stream) const
 {
+    of_stream.seekp(std::ios::end);
+
     return this->username.write_to_bin(of_stream) && this->email.write_to_bin(of_stream)
             && this->password_hash.write_to_bin(of_stream);
 }
@@ -198,7 +200,6 @@ bool User::save() const
 
     if (this->trips.get_len() < 1)
     {
-        std::cout << "peace\n";
         return true;
     }
 

@@ -1,6 +1,7 @@
 #ifndef DATE_HPP
 #define DATE_HPP
 
+#include <iostream>
 #include <fstream>
 
 class Date
@@ -41,5 +42,6 @@ bool operator>(const Date& lhs, const Date& rhs);
 bool operator<(const Date& lhs, const Date& rhs);
 bool operator>=(const Date& lhs, const Date& rhs);
 bool operator<=(const Date& lhs, const Date& rhs);
+std::ostream& operator<<(std::ostream& o_stream, const Date& date);
 
 #endif // DATE_HPP
