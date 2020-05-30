@@ -2,5 +2,19 @@
 *.js linguist-detectable=false
 *.html linguist-detectable=false
 *.js linguist-detectable=false
-*.tex linguist-detectable=false
 *.tcl linguist-detectable=false
+
+# ignore tex
+*.tex linguist-detectable=false
+*.aux linguist-detectable=false
+*.lof linguist-detectable=false
+*.log linguist-detectable=false
+*.lot linguist-detectable=false
+*.fls linguist-detectable=false
+*.out linguist-detectable=false
+*.toc linguist-detectable=false
+*.fmt linguist-detectable=false
+*.fot linguist-detectable=false
+*.cb linguist-detectable=false
+*.cb2 linguist-detectable=false
+.*.lb linguist-detectable=false
