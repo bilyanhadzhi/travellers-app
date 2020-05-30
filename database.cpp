@@ -147,7 +147,10 @@ bool Database::add_user(User user) const
     String users_db_filename(DB_SUBDIR);
     users_db_filename += DB_FILENAME_USERS;
 
-    std::ofstream users_file(users_db_filename.to_c_string(), std::ios::binary | std::ios::app);
+    std::ofstream users_file(users_db_filename.to_c_string(), std::ios::binary);
+    users_file.seekp(std::ios::beg);
+
+
 
     if (!users_file)
     {
@@ -183,6 +186,8 @@ bool Database::log_in(const char* username, const char* password)
         return false;
     }
 
+    std::cout << found_user->get_trips().get_len() << "\n";
+
     if (!found_user->is_correct_password(password))
     {
         return false;
@@ -214,6 +219,16 @@ bool Database::save_destinations() const
     }
 
     return true;
+}
+
+bool Database::save_user() const
+{
+    if (!this->curr_user)
+    {
+        return true;
+    }
+
+    return this->curr_user->save();
 }
 
 bool Database::load_destinations()

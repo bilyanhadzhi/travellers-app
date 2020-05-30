@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/bilyan/Coding/Projects/FMI/travellers_app/comment.cpp" "/home/bilyan/Coding/Projects/FMI/travellers_app/build/CMakeFiles/travellers_app.dir/comment.cpp.o"
   "/home/bilyan/Coding/Projects/FMI/travellers_app/database.cpp" "/home/bilyan/Coding/Projects/FMI/travellers_app/build/CMakeFiles/travellers_app.dir/database.cpp.o"
   "/home/bilyan/Coding/Projects/FMI/travellers_app/date.cpp" "/home/bilyan/Coding/Projects/FMI/travellers_app/build/CMakeFiles/travellers_app.dir/date.cpp.o"
   "/home/bilyan/Coding/Projects/FMI/travellers_app/destination.cpp" "/home/bilyan/Coding/Projects/FMI/travellers_app/build/CMakeFiles/travellers_app.dir/destination.cpp.o"

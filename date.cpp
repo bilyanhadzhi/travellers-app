@@ -142,10 +142,7 @@ bool Date::set_date(const char* date_string)
         return false;
     }
 
-    this->day = day;
-    this->month = month;
-    this->year = year;
-
+    this->set_date(day, month, year);
     return true;
 }
 
@@ -221,4 +218,47 @@ bool operator>=(const Date& lhs, const Date& rhs)
 bool operator<=(const Date& lhs, const Date& rhs)
 {
     return !(lhs > rhs);
+}
+
+
+bool Date::write_to_bin(std::ofstream& of_stream)
+{
+    if (!of_stream)
+    {
+        return false;
+    }
+
+    of_stream.write((char*)&this->day, sizeof(int));
+    of_stream.write((char*)&this->month, sizeof(int));
+    of_stream.write((char*)&this->year, sizeof(int));
+
+    return of_stream ? true : false;
+}
+
+bool Date::read_from_bin(std::ifstream& if_stream)
+{
+    if (!if_stream)
+    {
+        return false;
+    }
+
+    int day, month, year;
+    if_stream.read((char*)&day, sizeof(int));
+    if_stream.read((char*)&month, sizeof(int));
+    if_stream.read((char*)&year, sizeof(int));
+
+    return this->set_date(day, month, year);
+}
+
+bool Date::set_date(int day, int month, int year)
+{
+    if (!this->is_valid_date(day, month, year))
+    {
+        return false;
+    }
+
+    this->day = day;
+    this->month = month;
+    this->year = year;
+    return true;
 }

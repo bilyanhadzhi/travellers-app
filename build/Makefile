@@ -520,6 +520,33 @@ ContinuousConfigure/fast:
 	$(MAKE) -f CMakeFiles/ContinuousConfigure.dir/build.make CMakeFiles/ContinuousConfigure.dir/build
 .PHONY : ContinuousConfigure/fast
 
+comment.o: comment.cpp.o
+
+.PHONY : comment.o
+
+# target to build an object file
+comment.cpp.o:
+	$(MAKE) -f CMakeFiles/travellers_app.dir/build.make CMakeFiles/travellers_app.dir/comment.cpp.o
+.PHONY : comment.cpp.o
+
+comment.i: comment.cpp.i
+
+.PHONY : comment.i
+
+# target to preprocess a source file
+comment.cpp.i:
+	$(MAKE) -f CMakeFiles/travellers_app.dir/build.make CMakeFiles/travellers_app.dir/comment.cpp.i
+.PHONY : comment.cpp.i
+
+comment.s: comment.cpp.s
+
+.PHONY : comment.s
+
+# target to generate assembly for a file
+comment.cpp.s:
+	$(MAKE) -f CMakeFiles/travellers_app.dir/build.make CMakeFiles/travellers_app.dir/comment.cpp.s
+.PHONY : comment.cpp.s
+
 database.o: database.cpp.o
 
 .PHONY : database.o
@@ -803,6 +830,9 @@ help:
 	@echo "... NightlyCoverage"
 	@echo "... ExperimentalUpdate"
 	@echo "... ContinuousConfigure"
+	@echo "... comment.o"
+	@echo "... comment.i"
+	@echo "... comment.s"
 	@echo "... database.o"
 	@echo "... database.i"
 	@echo "... database.s"

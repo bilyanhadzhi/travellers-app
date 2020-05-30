@@ -37,6 +37,8 @@ public:
     User* get_curr_user() const;
     //! Write destinations to destinations.db
     bool save_destinations() const;
+    //! Write user to <username>.db
+    bool save_user() const;
     //! Add new destination to local vector; will be saved to file at close
     bool add_destination(Destination dest);
     //! Add new trip for logged-in user

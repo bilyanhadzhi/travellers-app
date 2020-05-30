@@ -8,13 +8,16 @@
 #define COMMAND_ADD_DESTINATION "add_destination"
 #define COMMAND_MY_TRIPS        "my_trips"
 #define COMMAND_ADD_TRIP        "add_trip"
+#define COMMAND_MY_FRIENDS      "my_friends"
+#define COMMAND_ADD_FRIEND      "add_friend"
 #define COMMAND_HELP            "help"
 #define COMMAND_EXIT            "exit"
 
 // Commands usage
 #define USAGE_REGISTER          "<username> <email> <password>"
 #define USAGE_LOG_IN            "<username> <password>"
-#define USAGE_ADD_DESTINATION   "<name> (e.g. `add_destination Yosemite`, `add_destination \"Sofia, Bulgaria\"`"
+#define USAGE_ADD_DESTINATION   "<name> (e.g. 'add_destination Yosemite', 'add_destination \"Sofia, Bulgaria\"'"
+#define USAGE_ADD_FRIEND        "<name>"
 
 // File names
 #define DB_SUBDIR                   "db/"

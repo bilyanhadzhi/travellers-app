@@ -16,6 +16,7 @@ set(Sources
     database.cpp
     io_handler.cpp
     travellers_app.cpp
+    comment.cpp
 )
 
 set(Headers
@@ -29,6 +30,7 @@ set(Headers
     database.hpp
     io_handler.hpp
     travellers_app.hpp
+    comment.hpp
 )
 
 add_executable(travellers_app ${Sources} ${Headers})

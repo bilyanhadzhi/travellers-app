@@ -43,5 +43,10 @@
   "directory": "/home/bilyan/Coding/Projects/FMI/travellers_app/build",
   "command": "/usr/bin/g++    -g   -o CMakeFiles/travellers_app.dir/travellers_app.cpp.o -c /home/bilyan/Coding/Projects/FMI/travellers_app/travellers_app.cpp",
   "file": "/home/bilyan/Coding/Projects/FMI/travellers_app/travellers_app.cpp"
+},
+{
+  "directory": "/home/bilyan/Coding/Projects/FMI/travellers_app/build",
+  "command": "/usr/bin/g++    -g   -o CMakeFiles/travellers_app.dir/comment.cpp.o -c /home/bilyan/Coding/Projects/FMI/travellers_app/comment.cpp",
+  "file": "/home/bilyan/Coding/Projects/FMI/travellers_app/comment.cpp"
 }
 ]

@@ -1,5 +1,6 @@
-#include "user.hpp"
+#include <fstream>
 #include <cctype>
+#include "user.hpp"
 #include "bcrypt/BCrypt.hpp"
 
 User::User()
@@ -15,8 +16,7 @@ User::User(String username, String email, String password_hash)
     this->set_email(email);
     this->set_password_hash(password_hash);
 
-    this->load_trips();
-    this->load_friends();
+    this->load();
 }
 
 bool User::is_valid_username(String username) const
@@ -159,22 +159,8 @@ String User::get_password_hash() const
 
 bool User::append_to_bin(std::ofstream& of_stream) const
 {
-    if (!this->username.write_to_bin(of_stream))
-    {
-        return false;
-    }
-
-    if (!this->email.write_to_bin(of_stream))
-    {
-        return false;
-    }
-
-    if (!this->password_hash.write_to_bin(of_stream))
-    {
-        return false;
-    }
-
-    return true;
+    return this->username.write_to_bin(of_stream) && this->email.write_to_bin(of_stream)
+            && this->password_hash.write_to_bin(of_stream);
 }
 
 bool User::is_correct_password(const char* password) const
@@ -187,12 +173,123 @@ void User::add_trip(const Trip trip)
     this->trips.push(trip);
 }
 
-bool User::load_trips()
+void User::add_friend(String new_friend_username)
 {
-
+    this->friends_usernames.push(new_friend_username);
 }
 
-bool User::load_friends()
+Vector<String> User::get_friends_usernames() const
 {
+    return this->friends_usernames;
+}
 
+Vector<Trip> User::get_trips() const
+{
+    return this->trips;
+}
+
+bool User::save() const
+{
+    String user_filename = DB_USERS_SUBDIR;
+    user_filename += this->get_username();
+    user_filename += DB_EXTENSION;
+
+    std::ofstream of_stream(user_filename.to_c_string(), std::ios::binary | std::ios::trunc);
+
+    if (this->trips.get_len() < 1)
+    {
+        std::cout << "peace\n";
+        return true;
+    }
+
+    return this->save_trips(of_stream);
+}
+
+bool User::save_trips(std::ofstream& of_stream) const
+{
+    if (!of_stream)
+    {
+        return false;
+    }
+
+    const int number_of_trips = this->trips.get_len();
+
+    of_stream.write((char*)&number_of_trips, sizeof(int));
+    for (int i = 0; i < number_of_trips; ++i)
+    {
+        this->trips[i].write_to_bin(of_stream);
+    }
+
+    return of_stream ? true : false;
+}
+
+bool User::save_friends(std::ofstream& of_stream) const
+{
+    const int friends_usernames_count = this->friends_usernames.get_len();
+
+    for (int i = 0; i < friends_usernames_count; ++i)
+    {
+        this->friends_usernames[i].write_to_bin(of_stream);
+    }
+
+    return of_stream ? true : false;
+}
+
+bool User::load()
+{
+    String user_filename = DB_USERS_SUBDIR;
+    user_filename += this->get_username();
+    user_filename += DB_EXTENSION;
+
+    std::ifstream if_stream(user_filename.to_c_string(), std::ios::binary);
+
+    return this->load_trips(if_stream) && this->load_friends(if_stream);
+}
+
+bool User::load_trips(std::ifstream& if_stream)
+{
+    if (!if_stream)
+    {
+        return false;
+    }
+
+    if_stream.seekg(std::ios::beg);
+    if (if_stream.peek() == EOF)
+    {
+        return false;
+    }
+
+    Vector<Destination> destinations;
+
+    int number_of_trips = 0;
+    if_stream.read((char*)&number_of_trips, sizeof(int));
+
+    for (int i = 0; i < number_of_trips; ++i)
+    {
+        Trip to_add(if_stream);
+        this->trips.push(to_add);
+    }
+
+    return if_stream ? true : false;
+}
+
+bool User::load_friends(std::ifstream& if_stream)
+{
+    if (!if_stream || if_stream.peek() == EOF)
+    {
+        return false;
+    }
+
+    int friends_usernames_count;
+    if_stream.read((char*)&friends_usernames_count, sizeof(int));
+
+    for (int i = 0; i < friends_usernames_count; ++i)
+    {
+        String friend_username;
+        friend_username.read_from_bin(if_stream);
+
+        this->friends_usernames.push(friend_username);
+    }
+
+    return if_stream ? true : false;
 }

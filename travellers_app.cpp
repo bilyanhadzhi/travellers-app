@@ -42,6 +42,14 @@ void TravellersApp::run()
         {
             this->handle_command_add_trip();
         }
+        else if (command == COMMAND_MY_FRIENDS)
+        {
+            this->handle_command_my_friends();
+        }
+        else if (command == COMMAND_ADD_FRIEND)
+        {
+            this->handle_command_add_friend();
+        }
         else if (command == COMMAND_HELP)
         {
             this->handle_command_help();
@@ -49,6 +57,7 @@ void TravellersApp::run()
         else if (command == COMMAND_EXIT)
         {
             this->database.save_destinations();
+            this->database.save_user();
             this->io_handler.print_message("Bye! :)");
         }
         else
@@ -145,6 +154,10 @@ void TravellersApp::handle_command_register()
     {
         this->io_handler.print_error("User could not be registered");
         return;
+    }
+    else
+    {
+        this->io_handler.print_success("User registered");
     }
 }
 
@@ -381,6 +394,7 @@ void TravellersApp::handle_command_add_trip()
             std::cout << "Do you wish to go back? (y/n) ";
             char ans;
             std::cin >> ans;
+            std::cin.ignore();
 
             if (ans == 'y')
             {
@@ -427,6 +441,7 @@ void TravellersApp::handle_command_add_trip()
             std::cout << "Do you wish to go back? (y/n) ";
             char ans;
             std::cin >> ans;
+            std::cin.ignore();
 
             if (ans == 'y')
             {
@@ -491,10 +506,12 @@ void TravellersApp::handle_command_add_trip()
     }
     while (rating < DEST_MIN_RATING || rating > DEST_MAX_RATING);
 
-    String comment = "";
+    String comment_string = "";
 
     std::cout << "Enter comment (leave empty for no comment): ";
-    comment.input(std::cin, true, '\n');
+    comment_string.input(std::cin, true, '\n');
+
+    Comment comment(comment_string, this->database.get_curr_user()->get_username());
 
     bool photos_entered = false;
     Vector<String> photo_filenames;
@@ -528,12 +545,12 @@ void TravellersApp::handle_command_add_trip()
         {
             if (!is_valid_img_filename(photo_filenames[i].to_c_string()))
             {
-                std::cout << "File " << photo_filenames[i] << " has invalid filename\n";
+                std::cout << "File \"" << photo_filenames[i] << "\" has invalid filename\n";
                 ++failed_tries;
             }
         }
 
-        if (failed_tries > 1)
+        if (failed_tries > 0)
         {
             continue;
         }
@@ -541,9 +558,10 @@ void TravellersApp::handle_command_add_trip()
     }
     while (!photos_entered);
 
-    Trip new_trip(found_destination, start_date, end_date, rating, comment, photo_filenames);
+    Trip new_trip(found_destination->get_name(), start_date, end_date, rating, comment, photo_filenames);
     this->database.add_trip_curr_user(new_trip);
-    this->io_handler.print_success("Trip added successfully");
+    found_destination->add_visit(rating);
+    this->io_handler.print_success("Trip added");
 }
 
 // helper function
@@ -590,6 +608,99 @@ bool is_valid_img_filename(const char* filename)
     }
 
     return true;
+}
+
+void TravellersApp::handle_command_my_friends()
+{
+    if (std::cin.peek() != '\n')
+    {
+        this->io_handler.input_args(std::cin);
+
+        if (!this->is_logged_in())
+        {
+            this->io_handler.print_not_logged_in();
+        }
+        else
+        {
+            this->io_handler.print_message("No arguments needed");
+        }
+        return;
+    }
+
+    std::cin.ignore();
+    if (!this->is_logged_in())
+    {
+        this->io_handler.print_not_logged_in();
+        return;
+    }
+
+    Vector<String> user_friends_usernames = this->database.get_curr_user()->get_friends_usernames();
+    const int user_friends_count = user_friends_usernames.get_len();
+
+    if (user_friends_count < 1)
+    {
+        std::cout << "No friends\n";
+        return;
+    }
+
+    for (int i = 0; i < user_friends_count; ++i)
+    {
+        std::cout << user_friends_usernames[i] << "\n";
+    }
+}
+
+void TravellersApp::handle_command_add_friend()
+{
+    if (std::cin.peek() == '\n')
+    {
+        if (!this->is_logged_in())
+        {
+            this->io_handler.print_not_logged_in();
+        }
+        else
+        {
+            this->io_handler.print_usage(COMMAND_ADD_FRIEND, USAGE_ADD_FRIEND);
+        }
+
+        std::cin.ignore();
+        return;
+    }
+
+    this->io_handler.input_args(std::cin);
+
+    if (!this->is_logged_in())
+    {
+        this->io_handler.print_not_logged_in();
+        return;
+    }
+
+    if (!this->io_handler.check_number_of_arguments(1))
+    {
+        this->io_handler.print_usage(COMMAND_ADD_FRIEND, USAGE_ADD_FRIEND);
+        return;
+    }
+
+    Vector<String> arguments = this->io_handler.get_args();
+    User* found_user = this->database.get_user_by_username(arguments[0].to_c_string());
+
+    if (!found_user)
+    {
+        this->io_handler.print_error("Could not find user");
+        delete found_user;
+        return;
+    }
+    else if (found_user->get_username() == this->database.get_curr_user()->get_username())
+    {
+        this->io_handler.print_error("You can't add yourself as a friend :)");
+        delete found_user;
+        return;
+    }
+
+    this->database.get_curr_user()->add_friend(found_user->get_username());
+    this->io_handler.print_success("Friend added");
+    delete found_user;
+
+    return;
 }
 
 void TravellersApp::handle_command_help()

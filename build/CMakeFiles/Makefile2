@@ -615,12 +615,12 @@ CMakeFiles/ExperimentalTest.dir/clean:
 CMakeFiles/travellers_app.dir/all:
 	$(MAKE) -f CMakeFiles/travellers_app.dir/build.make CMakeFiles/travellers_app.dir/depend
 	$(MAKE) -f CMakeFiles/travellers_app.dir/build.make CMakeFiles/travellers_app.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bilyan/Coding/Projects/FMI/travellers_app/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target travellers_app"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bilyan/Coding/Projects/FMI/travellers_app/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11 "Built target travellers_app"
 .PHONY : CMakeFiles/travellers_app.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/travellers_app.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bilyan/Coding/Projects/FMI/travellers_app/build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bilyan/Coding/Projects/FMI/travellers_app/build/CMakeFiles 11
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/travellers_app.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/bilyan/Coding/Projects/FMI/travellers_app/build/CMakeFiles 0
 .PHONY : CMakeFiles/travellers_app.dir/rule

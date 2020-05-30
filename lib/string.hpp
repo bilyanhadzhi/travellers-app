@@ -22,6 +22,7 @@ public:
     String(const char* str);
     String(const String& other);
     String(const std::string std_string);
+    String(double number);
     String& operator=(const String& other);
     //! Replace string value with str (frees old value)
     String& operator=(const char* str);

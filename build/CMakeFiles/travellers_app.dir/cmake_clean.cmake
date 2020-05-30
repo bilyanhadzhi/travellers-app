@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/travellers_app.dir/comment.cpp.o"
   "CMakeFiles/travellers_app.dir/database.cpp.o"
   "CMakeFiles/travellers_app.dir/date.cpp.o"
   "CMakeFiles/travellers_app.dir/destination.cpp.o"
