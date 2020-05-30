@@ -119,6 +119,10 @@ std::ostream& operator<<(std::ostream& o_stream, const Trip& trip)
         o_stream.write(trip.get_comment().get_value().to_c_string(), PRINT_MAX_DESC_LEN - 4);
         o_stream << " ... | ";
     }
+    else if (comment_len < 1)
+    {
+        o_stream << std::left << std::setw(PRINT_MAX_DESC_LEN) << "No comment" << " | ";
+    }
     else
     {
         o_stream << std::left << std::setw(PRINT_MAX_DESC_LEN) << trip.get_comment().get_value() << " | ";
@@ -135,10 +139,14 @@ std::ostream& operator<<(std::ostream& o_stream, const Trip& trip)
         photo_names_output += " ";
     }
 
-if (photo_names_output.get_len() > PRINT_MAX_PHOTO_NAMES_LEN)
+    if (photo_names_output.get_len() > PRINT_MAX_PHOTO_NAMES_LEN)
     {
         o_stream.write(photo_names_output.to_c_string(), PRINT_MAX_PHOTO_NAMES_LEN - 4);
         o_stream << " ... | ";
+    }
+    else if (photo_names_output.get_len() < 1)
+    {
+        o_stream << std::left << std::setw(PRINT_MAX_PHOTO_NAMES_LEN) << "No photos" << " |";
     }
     else
     {

@@ -203,7 +203,7 @@ bool User::save() const
         return true;
     }
 
-    return this->save_trips(of_stream);
+    return this->save_trips(of_stream) && this->save_friends(of_stream);
 }
 
 bool User::save_trips(std::ofstream& of_stream) const
@@ -227,6 +227,8 @@ bool User::save_trips(std::ofstream& of_stream) const
 bool User::save_friends(std::ofstream& of_stream) const
 {
     const int friends_usernames_count = this->friends_usernames.get_len();
+
+    of_stream.write((char*)&friends_usernames_count, sizeof(int));
 
     for (int i = 0; i < friends_usernames_count; ++i)
     {

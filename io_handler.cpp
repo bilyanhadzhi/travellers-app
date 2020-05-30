@@ -85,7 +85,7 @@ bool IOHandler::check_number_of_arguments(int num_of_args) const
 
 void IOHandler::print_prompt() const
 {
-    std::cout << "(traveller's app) $ ";
+    std::cout << SHELL_PROMPT;
 }
 
 void IOHandler::print_message(String message, String prefix) const

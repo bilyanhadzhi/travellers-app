@@ -183,8 +183,6 @@ bool Database::log_in(const char* username, const char* password)
         return false;
     }
 
-    std::cout << found_user->get_trips().get_len() << "\n";
-
     if (!found_user->is_correct_password(password))
     {
         return false;

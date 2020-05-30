@@ -1,6 +1,8 @@
 #ifndef CONSTANTS_HPP
 #define CONSTANTS_HPP
 
+#define SHELL_PROMPT            "(traveller's app) $ "
+
 // Commands
 #define COMMAND_REGISTER        "register"
 #define COMMAND_LOG_IN          "log_in"
@@ -19,6 +21,8 @@
 #define USAGE_ADD_DESTINATION   "<name> (e.g. 'add_destination Yosemite', 'add_destination \"Sofia, Bulgaria\"'"
 #define USAGE_ADD_FRIEND        "<name>"
 
+#define MESSAGE_EXIT            "Bye! :)"
+
 // File names
 #define DB_SUBDIR                   "db/"
 #define DB_USERS_SUBDIR             "db/users/"
@@ -36,6 +40,7 @@
 // General buffer size
 #define BUFFER_SIZE 256
 
+// Characters to print before truncating long strings (like a description)
 #define PRINT_MAX_DESC_LEN 50
 #define PRINT_MAX_PHOTO_NAMES_LEN 30
 

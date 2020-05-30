@@ -58,7 +58,7 @@ void TravellersApp::run()
         {
             this->database.save_destinations();
             this->database.save_user();
-            this->io_handler.print_message("Bye! :)");
+            this->io_handler.print_message(MESSAGE_EXIT);
         }
         else
         {
@@ -226,7 +226,7 @@ void TravellersApp::handle_command_destinations()
 
     for (int i = 0; i < destination_count; ++i)
     {
-        std::cout << all_destinations[i].get_name() << "\n";
+        std::cout << all_destinations[i] << "\n";
     }
 }
 
@@ -655,7 +655,7 @@ void TravellersApp::handle_command_my_friends()
 
     if (user_friends_count < 1)
     {
-        std::cout << "No friends\n";
+        std::cout << "No friends :(\n";
         return;
     }
 

@@ -1,4 +1,5 @@
 #include <fstream>
+#include <iomanip>
 #include <cassert>
 #include "destination.hpp"
 #include "constants.hpp"
@@ -44,7 +45,7 @@ bool Destination::read_from_bin(std::ifstream& if_stream)
     return true;
 }
 
-bool Destination::write_to_bin(std::ofstream& of_stream)
+bool Destination::write_to_bin(std::ofstream& of_stream) const
 {
     if (!of_stream)
     {
@@ -102,7 +103,7 @@ double Destination::get_avg_rating() const
 {
     if (this->num_visits < 1)
     {
-        return 0;
+        return 0.0;
     }
 
     return this->acc_rating / this->num_visits;
@@ -117,4 +118,11 @@ bool Destination::add_visit(double rating)
 
     this->acc_rating += rating;
     this->num_visits++;
+}
+
+std::ostream& operator<<(std::ostream& o_stream, const Destination& destination)
+{
+    o_stream << std::setw(25) << std::left << destination.get_name() << " | ";
+    o_stream << std::setw(4) << std::right << destination.get_num_visits() << " | ";
+    o_stream << std::setw(6) << std::setprecision(3) << std::right << destination.get_avg_rating() << " |";
 }

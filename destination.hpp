@@ -1,6 +1,8 @@
 #ifndef DESTINATION_HPP
 #define DESTINATION_HPP
 
+#include <iostream>
+#include <fstream>
 #include "lib/string.hpp"
 
 class Destination
@@ -18,7 +20,7 @@ public:
     //! Load destination from binary file
     bool read_from_bin(std::ifstream& if_stream);
     //! Write destination to binary file
-    bool write_to_bin(std::ofstream& of_stream);
+    bool write_to_bin(std::ofstream& of_stream) const;
     //! Get destination name
     String get_name() const;
     //! Get number of visits of destination
@@ -28,5 +30,7 @@ public:
     //! Add a visit entry with a rating
     bool add_visit(double rating);
 };
+
+std::ostream& operator<<(std::ostream& o_stream, const Destination& destination);
 
 #endif // DESTINATION_HPP
