@@ -1,24 +1,27 @@
 #ifndef CONSTANTS_HPP
 #define CONSTANTS_HPP
 
-#define SHELL_PROMPT            "(traveller's app) $ "
+#define SHELL_PROMPT    "(traveller's app) $ "
 
 // Commands
-#define COMMAND_REGISTER        "register"
-#define COMMAND_LOG_IN          "log_in"
-#define COMMAND_DESTINATIONS    "destinations"
-#define COMMAND_ADD_DESTINATION "add_destination"
-#define COMMAND_MY_TRIPS        "my_trips"
-#define COMMAND_ADD_TRIP        "add_trip"
-#define COMMAND_MY_FRIENDS      "my_friends"
-#define COMMAND_ADD_FRIEND      "add_friend"
-#define COMMAND_HELP            "help"
-#define COMMAND_EXIT            "exit"
+#define COMMAND_REGISTER            "register"
+#define COMMAND_LOG_IN              "log_in"
+#define COMMAND_DESTINATIONS        "destinations"
+#define COMMAND_ADD_DESTINATION     "add_destination"
+#define COMMAND_DESTINATION_INFO    "destination_info"
+#define COMMAND_MY_TRIPS            "my_trips"
+#define COMMAND_ADD_TRIP            "add_trip"
+#define COMMAND_MY_FRIENDS          "my_friends"
+#define COMMAND_ADD_FRIEND          "add_friend"
+#define COMMAND_LOG_OUT             "log_out"
+#define COMMAND_HELP                "help"
+#define COMMAND_EXIT                "exit"
 
 // Commands usage
 #define USAGE_REGISTER          "<username> <email> <password>"
 #define USAGE_LOG_IN            "<username> <password>"
-#define USAGE_ADD_DESTINATION   "<name> (e.g. 'add_destination Yosemite', 'add_destination \"Sofia, Bulgaria\"'"
+#define USAGE_ADD_DESTINATION   "<name | \"Name with spaces\">"
+#define USAGE_DESTINATION_INFO  "<name | \"Name with spaces\">"
 #define USAGE_ADD_FRIEND        "<name>"
 
 #define MESSAGE_EXIT            "Bye! :)"

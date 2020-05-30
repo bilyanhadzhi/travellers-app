@@ -33,6 +33,8 @@ public:
     bool add_user(User user) const;
     //! Set current user
     bool log_in(const char* username, const char* password);
+    //! Save current user's information and log him out
+    bool log_out();
     //! Get currently logged in user
     User* get_curr_user() const;
     //! Write destinations to destinations.db
@@ -43,7 +45,8 @@ public:
     bool add_destination(Destination dest);
     //! Add new trip for logged-in user
     void add_trip_curr_user(Trip trip);
-
+    //! Get trip by user for destination, if exists (else nullptr)
+    Trip* get_trip_by_user_for_dest(String username, const Destination& existing_destination);
 };
 
 #endif // DATABASE_HPP

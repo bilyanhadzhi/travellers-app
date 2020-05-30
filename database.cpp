@@ -12,7 +12,11 @@ void Database::copy_from(const Database& other)
 
 void Database::free_memory()
 {
-    delete this->curr_user;
+    if (this->curr_user != nullptr)
+    {
+        delete this->curr_user;
+        this->curr_user = nullptr;
+    }
 }
 
 Database::Database()
@@ -271,4 +275,41 @@ bool Database::add_destination(Destination dest)
 void Database::add_trip_curr_user(Trip trip)
 {
     this->curr_user->add_trip(trip);
+}
+
+bool Database::log_out()
+{
+    bool logged_out = this->save_destinations() && this->save_user();
+
+    this->free_memory();
+
+    return logged_out;
+}
+
+Trip* Database::get_trip_by_user_for_dest(String username, const Destination& existing_destination)
+{
+    User* existing_user = this->get_user_by_username(username.to_c_string());
+
+    if (!existing_user)
+    {
+        return nullptr;
+    }
+
+    Trip* found_trip = nullptr;
+
+    existing_user->load();
+
+    const Vector<Trip> existing_user_trips = existing_user->get_trips();
+    const int existing_user_trips_count = existing_user_trips.get_len();
+
+    for (int i = 0; i < existing_user_trips_count && !found_trip; ++i)
+    {
+        if (existing_user_trips[i].get_destination_name() == existing_destination.get_name())
+        {
+            found_trip = new Trip(existing_user_trips[i]);
+        }
+    }
+
+    delete existing_user;
+    return found_trip;
 }

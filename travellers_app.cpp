@@ -34,6 +34,10 @@ void TravellersApp::run()
         {
             this->handle_command_add_destination();
         }
+        else if (command == COMMAND_DESTINATION_INFO)
+        {
+            this->handle_command_destination_info();
+        }
         else if (command == COMMAND_MY_TRIPS)
         {
             this->handle_command_my_trips();
@@ -50,14 +54,20 @@ void TravellersApp::run()
         {
             this->handle_command_add_friend();
         }
+        else if (command == COMMAND_LOG_OUT)
+        {
+            this->handle_command_log_out();
+        }
         else if (command == COMMAND_HELP)
         {
             this->handle_command_help();
         }
         else if (command == COMMAND_EXIT)
         {
-            this->database.save_destinations();
-            this->database.save_user();
+            if (this->is_logged_in())
+            {
+                this->database.log_out();
+            }
             this->io_handler.print_message(MESSAGE_EXIT);
         }
         else
@@ -294,6 +304,98 @@ void TravellersApp::handle_command_add_destination()
     this->database.add_destination(new_dest);
 
     this->io_handler.print_success("Destination added");
+}
+
+void TravellersApp::handle_command_destination_info()
+{
+    if (std::cin.peek() == '\n')
+    {
+        if (!this->is_logged_in())
+        {
+            this->io_handler.print_not_logged_in();
+        }
+        else
+        {
+            this->io_handler.print_usage(COMMAND_DESTINATION_INFO, USAGE_DESTINATION_INFO);
+        }
+
+        std::cin.ignore();
+        return;
+    }
+
+    bool is_logged_in = this->is_logged_in();
+
+    String dest_name;
+
+    if (std::cin.peek() == '"')
+    {
+        std::cin.get();
+        dest_name.input(std::cin, false, '\"');
+
+        if (!is_logged_in)
+        {
+            this->io_handler.print_not_logged_in();
+            return;
+        }
+    }
+    else
+    {
+        this->io_handler.input_args(std::cin);
+
+        if (!is_logged_in)
+        {
+            this->io_handler.print_not_logged_in();
+            return;
+        }
+
+        if (!this->io_handler.check_number_of_arguments(1))
+        {
+            this->io_handler.print_usage(COMMAND_DESTINATION_INFO, USAGE_DESTINATION_INFO);
+            return;
+        }
+
+        Vector<String> arguments = this->io_handler.get_args();
+
+        dest_name = arguments[0];
+    }
+
+    Destination* existing_destination = this->database.get_destination_by_name(dest_name.to_c_string());
+    if (!existing_destination)
+    {
+        this->io_handler.print_error("Destination does not exist");
+        return;
+    }
+
+    std::cout << "Information for destination \"" << dest_name << "\":\n\n";
+    std::cout << *existing_destination << "\n\n";
+
+    std::cout << "Visits by friends:\n";
+
+    Vector<String> friends_usernames = this->database.get_curr_user()->get_friends_usernames();
+    const int friends_count = friends_usernames.get_len();
+
+    bool has_visits_from_friends = false;
+    for (int i = 0; i < friends_count; ++i)
+    {
+        Trip* trip_by_user = this->database.get_trip_by_user_for_dest(friends_usernames[i], *existing_destination);
+
+        if (!trip_by_user)
+        {
+            continue;
+        }
+
+        has_visits_from_friends = true;
+        std::cout << *trip_by_user << "\n";
+
+        delete trip_by_user;
+    }
+
+    if (!has_visits_from_friends)
+    {
+        std::cout << "No visits\n";
+    }
+
+    std::cout << "\n";
 }
 
 void TravellersApp::handle_command_my_trips()
@@ -728,4 +830,24 @@ void TravellersApp::handle_command_help()
         std::cin.ignore();
         return;
     }
+}
+
+void TravellersApp::handle_command_log_out()
+{
+    if (std::cin.peek() != '\n')
+    {
+        this->io_handler.input_args(std::cin);
+        this->io_handler.print_usage(COMMAND_LOG_OUT);
+        std::cin.ignore();
+        return;
+    }
+
+    if (!this->is_logged_in())
+    {
+        this->io_handler.print_not_logged_in();
+        return;
+    }
+
+    this->database.log_out();
+    this->io_handler.print_success("Logged out");
 }
