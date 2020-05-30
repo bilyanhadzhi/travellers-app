@@ -1,0 +1,38 @@
+\hypertarget{classComment}{}\doxysection{Comment Class Reference}
+\label{classComment}\index{Comment@{Comment}}
+
+
+A comment to a \mbox{\hyperlink{classTrip}{Trip}} has the value of the comment itself, and the username of the commenter (i.\+e. the visitor)  
+
+
+
+
+{\ttfamily \#include $<$comment.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classComment_a5c7ddccfaa4de28f834609f17b07e087}\label{classComment_a5c7ddccfaa4de28f834609f17b07e087}} 
+{\bfseries Comment} (String value, String from)
+\item 
+\mbox{\Hypertarget{classComment_ae037923e5cafdcc87e264a72f47816b6}\label{classComment_ae037923e5cafdcc87e264a72f47816b6}} 
+bool \mbox{\hyperlink{classComment_ae037923e5cafdcc87e264a72f47816b6}{write\+\_\+to\+\_\+bin}} (std\+::ofstream \&of\+\_\+stream)
+\begin{DoxyCompactList}\small\item\em Write comment string and username of user which posted it. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classComment_a3ce6ce12b3d4a018022bdca39171eab3}\label{classComment_a3ce6ce12b3d4a018022bdca39171eab3}} 
+bool \mbox{\hyperlink{classComment_a3ce6ce12b3d4a018022bdca39171eab3}{read\+\_\+from\+\_\+bin}} (std\+::ifstream \&if\+\_\+stream)
+\begin{DoxyCompactList}\small\item\em Read comment string and username of poster. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classComment_add0d15b4d0382280d27d5ff226d02f61}\label{classComment_add0d15b4d0382280d27d5ff226d02f61}} 
+String \mbox{\hyperlink{classComment_add0d15b4d0382280d27d5ff226d02f61}{get\+\_\+value}} () const
+\begin{DoxyCompactList}\small\item\em Get comment string. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classComment_add760e6ef52f4f722a402438509a454d}\label{classComment_add760e6ef52f4f722a402438509a454d}} 
+String \mbox{\hyperlink{classComment_add760e6ef52f4f722a402438509a454d}{get\+\_\+from}} () const
+\begin{DoxyCompactList}\small\item\em Get username string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A comment to a \mbox{\hyperlink{classTrip}{Trip}} has the value of the comment itself, and the username of the commenter (i.\+e. the visitor) 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+comment.\+hpp\item 
+comment.\+cpp\end{DoxyCompactItemize}

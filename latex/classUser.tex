@@ -1,0 +1,92 @@
+\hypertarget{classUser}{}\doxysection{User Class Reference}
+\label{classUser}\index{User@{User}}
+
+
+The user class, which stores its username, email, password hash(!), trips and friends.  
+
+
+
+
+{\ttfamily \#include $<$user.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classUser_a4a0137053e591fbb79d9057dd7d2283d}\label{classUser_a4a0137053e591fbb79d9057dd7d2283d}} 
+\mbox{\hyperlink{classUser_a4a0137053e591fbb79d9057dd7d2283d}{User}} ()
+\begin{DoxyCompactList}\small\item\em Create an all-\/empty user (for array purposes) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUser_a15f05f0681b6bbcf73999c259e3f6433}\label{classUser_a15f05f0681b6bbcf73999c259e3f6433}} 
+\mbox{\hyperlink{classUser_a15f05f0681b6bbcf73999c259e3f6433}{User}} (String username, String email, String password\+\_\+hash)
+\begin{DoxyCompactList}\small\item\em Create new user. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUser_a56d4988add8b1dc1f37c404d2097d3f1}\label{classUser_a56d4988add8b1dc1f37c404d2097d3f1}} 
+bool \mbox{\hyperlink{classUser_a56d4988add8b1dc1f37c404d2097d3f1}{set\+\_\+username}} (String username)
+\begin{DoxyCompactList}\small\item\em Set username for user (only if valid and free) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUser_a02bdc4692eee694df2ceaf176a2515ea}\label{classUser_a02bdc4692eee694df2ceaf176a2515ea}} 
+bool \mbox{\hyperlink{classUser_a02bdc4692eee694df2ceaf176a2515ea}{set\+\_\+email}} (String email)
+\begin{DoxyCompactList}\small\item\em Set email for user (only if valid) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUser_aa9c41dff5651660f04d16a602e576cd4}\label{classUser_aa9c41dff5651660f04d16a602e576cd4}} 
+bool \mbox{\hyperlink{classUser_aa9c41dff5651660f04d16a602e576cd4}{set\+\_\+password}} (String password)
+\begin{DoxyCompactList}\small\item\em Set password (hash) for user (only if valid) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUser_ae4c89ce71df2952addc5e2a173e7b652}\label{classUser_ae4c89ce71df2952addc5e2a173e7b652}} 
+String \mbox{\hyperlink{classUser_ae4c89ce71df2952addc5e2a173e7b652}{get\+\_\+username}} () const
+\begin{DoxyCompactList}\small\item\em Get username. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUser_a947e42cc45a02400cee18f7aa049c1a0}\label{classUser_a947e42cc45a02400cee18f7aa049c1a0}} 
+String \mbox{\hyperlink{classUser_a947e42cc45a02400cee18f7aa049c1a0}{get\+\_\+email}} () const
+\begin{DoxyCompactList}\small\item\em Get email. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUser_a0e209921402860154ca54a98f8d9093f}\label{classUser_a0e209921402860154ca54a98f8d9093f}} 
+String \mbox{\hyperlink{classUser_a0e209921402860154ca54a98f8d9093f}{get\+\_\+password\+\_\+hash}} () const
+\begin{DoxyCompactList}\small\item\em Get password hash. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUser_ac185717b8f533dc47586807c41b5f744}\label{classUser_ac185717b8f533dc47586807c41b5f744}} 
+Vector$<$ String $>$ \mbox{\hyperlink{classUser_ac185717b8f533dc47586807c41b5f744}{get\+\_\+friends\+\_\+usernames}} () const
+\begin{DoxyCompactList}\small\item\em Get copy of usernames of user\textquotesingle{}s friends. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUser_a34d66cd3185d8d4f6bbcdd3a9eea4c71}\label{classUser_a34d66cd3185d8d4f6bbcdd3a9eea4c71}} 
+Vector$<$ \mbox{\hyperlink{classTrip}{Trip}} $>$ \mbox{\hyperlink{classUser_a34d66cd3185d8d4f6bbcdd3a9eea4c71}{get\+\_\+trips}} () const
+\begin{DoxyCompactList}\small\item\em Get copy of trips for user. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUser_afbc90eaaf81713d3ba62fe3c96448e53}\label{classUser_afbc90eaaf81713d3ba62fe3c96448e53}} 
+bool \mbox{\hyperlink{classUser_afbc90eaaf81713d3ba62fe3c96448e53}{append\+\_\+to\+\_\+bin}} (std\+::ofstream \&of\+\_\+stream) const
+\begin{DoxyCompactList}\small\item\em Append user username, email, and password hash to binary file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUser_a72d39cb4aa674909d82d151a151e5767}\label{classUser_a72d39cb4aa674909d82d151a151e5767}} 
+bool \mbox{\hyperlink{classUser_a72d39cb4aa674909d82d151a151e5767}{is\+\_\+correct\+\_\+password}} (const char $\ast$password) const
+\begin{DoxyCompactList}\small\item\em Return whether password matches user\textquotesingle{}s. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUser_a1845393e00f23106600700e1b29ad0cd}\label{classUser_a1845393e00f23106600700e1b29ad0cd}} 
+void \mbox{\hyperlink{classUser_a1845393e00f23106600700e1b29ad0cd}{add\+\_\+trip}} (const \mbox{\hyperlink{classTrip}{Trip}} trip)
+\begin{DoxyCompactList}\small\item\em Add trip. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUser_a2b68f1b2ecaae95f3e6ec8dac7a98e52}\label{classUser_a2b68f1b2ecaae95f3e6ec8dac7a98e52}} 
+void \mbox{\hyperlink{classUser_a2b68f1b2ecaae95f3e6ec8dac7a98e52}{add\+\_\+friend}} (String new\+\_\+friend\+\_\+username)
+\begin{DoxyCompactList}\small\item\em Add friend. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUser_ac95a349fbd2d0d36c552e7179f7afd27}\label{classUser_ac95a349fbd2d0d36c552e7179f7afd27}} 
+bool \mbox{\hyperlink{classUser_ac95a349fbd2d0d36c552e7179f7afd27}{save}} () const
+\begin{DoxyCompactList}\small\item\em Save information of user to file w/ same name. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUser_a3d08771fc9a7ca99710a96d04fb578d6}\label{classUser_a3d08771fc9a7ca99710a96d04fb578d6}} 
+bool \mbox{\hyperlink{classUser_a3d08771fc9a7ca99710a96d04fb578d6}{save\+\_\+trips}} (std\+::ofstream \&of\+\_\+stream) const
+\begin{DoxyCompactList}\small\item\em Save only trips to file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUser_a7b7f6952a29dcfbcfac1274ca5cfbd80}\label{classUser_a7b7f6952a29dcfbcfac1274ca5cfbd80}} 
+bool \mbox{\hyperlink{classUser_a7b7f6952a29dcfbcfac1274ca5cfbd80}{save\+\_\+friends}} (std\+::ofstream \&of\+\_\+stream) const
+\begin{DoxyCompactList}\small\item\em Save friends to file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUser_a77eb37220ba525a736a4110bfc81d73d}\label{classUser_a77eb37220ba525a736a4110bfc81d73d}} 
+bool \mbox{\hyperlink{classUser_a77eb37220ba525a736a4110bfc81d73d}{save\+\_\+as\+\_\+friend}} (std\+::ofstream \&of\+\_\+stream) const
+\begin{DoxyCompactList}\small\item\em Save current user as friend in file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUser_a331fd800c75a23c8a3acdd8da65a122a}\label{classUser_a331fd800c75a23c8a3acdd8da65a122a}} 
+bool \mbox{\hyperlink{classUser_a331fd800c75a23c8a3acdd8da65a122a}{load}} ()
+\begin{DoxyCompactList}\small\item\em Load trips and friends from user file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUser_a378f44581328ba8ad5b8bd644c7a9a48}\label{classUser_a378f44581328ba8ad5b8bd644c7a9a48}} 
+bool \mbox{\hyperlink{classUser_a378f44581328ba8ad5b8bd644c7a9a48}{load\+\_\+trips}} (std\+::ifstream \&if\+\_\+stream)
+\begin{DoxyCompactList}\small\item\em Load only trips from file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUser_aa2b6f178494f27a2985c0f50b2ecb5da}\label{classUser_aa2b6f178494f27a2985c0f50b2ecb5da}} 
+bool \mbox{\hyperlink{classUser_aa2b6f178494f27a2985c0f50b2ecb5da}{load\+\_\+friends}} (std\+::ifstream \&if\+\_\+stream)
+\begin{DoxyCompactList}\small\item\em Load only friends from file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The user class, which stores its username, email, password hash(!), trips and friends. 
+
+Trips are loaded from the \textquotesingle{}personal database\textquotesingle{} of the user, i.\+e. the file with the same name at path db/users/
+
+Friends are not stored as user pointers, but instead as simply their usernames, in order to keep the personal database of the user lean. It is \mbox{\hyperlink{classDatabase}{Database}}\textquotesingle{}s responsibility to load users from files, all a user knows about his friends are their usernames.
+
+The passwords are hashed via bcrypt and stored as such. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+user.\+hpp\item 
+user.\+cpp\end{DoxyCompactItemize}

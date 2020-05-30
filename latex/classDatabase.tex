@@ -1,0 +1,76 @@
+\hypertarget{classDatabase}{}\doxysection{Database Class Reference}
+\label{classDatabase}\index{Database@{Database}}
+
+
+\mbox{\hyperlink{classDatabase}{Database}} class, responsible for storing currently logged in user and all destinations.  
+
+
+
+
+{\ttfamily \#include $<$database.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDatabase_a4703c80e6969d33565ea340f768fdadf}\label{classDatabase_a4703c80e6969d33565ea340f768fdadf}} 
+\mbox{\hyperlink{classDatabase_a4703c80e6969d33565ea340f768fdadf}{Database}} ()
+\begin{DoxyCompactList}\small\item\em Set current user to nullptr and load all destinations from destinations.\+db. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDatabase_abe803a9d8bbd4ee7fd6dd109f15ba4ff}\label{classDatabase_abe803a9d8bbd4ee7fd6dd109f15ba4ff}} 
+\mbox{\hyperlink{classDatabase_abe803a9d8bbd4ee7fd6dd109f15ba4ff}{Database}} (const \mbox{\hyperlink{classDatabase}{Database}} \&other)
+\begin{DoxyCompactList}\small\item\em Copy destinations and make a new instance of user. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDatabase_a6f841a94b7901f1c799ab8f91ff27b04}\label{classDatabase_a6f841a94b7901f1c799ab8f91ff27b04}} 
+\mbox{\hyperlink{classDatabase}{Database}} \& \mbox{\hyperlink{classDatabase_a6f841a94b7901f1c799ab8f91ff27b04}{operator=}} (const \mbox{\hyperlink{classDatabase}{Database}} \&other)
+\begin{DoxyCompactList}\small\item\em Same as copy constructor, but free memory first. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDatabase_a84d399a2ad58d69daab9b05330e1316d}\label{classDatabase_a84d399a2ad58d69daab9b05330e1316d}} 
+\mbox{\hyperlink{classDatabase_a84d399a2ad58d69daab9b05330e1316d}{$\sim$\+Database}} ()
+\begin{DoxyCompactList}\small\item\em Free user memory. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDatabase_ae6fcde973244dcd4383c2247b6a69b7d}\label{classDatabase_ae6fcde973244dcd4383c2247b6a69b7d}} 
+\mbox{\hyperlink{classUser}{User}} $\ast$ \mbox{\hyperlink{classDatabase_ae6fcde973244dcd4383c2247b6a69b7d}{get\+\_\+user\+\_\+by\+\_\+username}} (const char $\ast$username) const
+\begin{DoxyCompactList}\small\item\em Get user from users.\+db by name. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDatabase_a6696b4a1d3a9c7e76f9463ac7368a3e1}\label{classDatabase_a6696b4a1d3a9c7e76f9463ac7368a3e1}} 
+\mbox{\hyperlink{classUser}{User}} $\ast$ \mbox{\hyperlink{classDatabase_a6696b4a1d3a9c7e76f9463ac7368a3e1}{get\+\_\+user\+\_\+by\+\_\+email}} (const char $\ast$email) const
+\begin{DoxyCompactList}\small\item\em Get user from users.\+db by email. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDatabase_a1a79995061b8325bd9052871bc0f71af}\label{classDatabase_a1a79995061b8325bd9052871bc0f71af}} 
+\mbox{\hyperlink{classDestination}{Destination}} $\ast$ \mbox{\hyperlink{classDatabase_a1a79995061b8325bd9052871bc0f71af}{get\+\_\+destination\+\_\+by\+\_\+name}} (const char $\ast$name) const
+\begin{DoxyCompactList}\small\item\em Get destinaiton by its name, nullptr else. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDatabase_ab685da07d8518528d0c4c775152888e4}\label{classDatabase_ab685da07d8518528d0c4c775152888e4}} 
+const Vector$<$ \mbox{\hyperlink{classDestination}{Destination}} $>$ \& \mbox{\hyperlink{classDatabase_ab685da07d8518528d0c4c775152888e4}{get\+\_\+destinations}} () const
+\begin{DoxyCompactList}\small\item\em Get an immutable list of the destinations. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDatabase_a294777a1a2ded61b19d9457667b45cc8}\label{classDatabase_a294777a1a2ded61b19d9457667b45cc8}} 
+bool \mbox{\hyperlink{classDatabase_a294777a1a2ded61b19d9457667b45cc8}{add\+\_\+user}} (\mbox{\hyperlink{classUser}{User}} user) const
+\begin{DoxyCompactList}\small\item\em Save new user to users.\+db and create personal db file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDatabase_a92c6c526aa7c0916f515155ac6a1ec6b}\label{classDatabase_a92c6c526aa7c0916f515155ac6a1ec6b}} 
+bool \mbox{\hyperlink{classDatabase_a92c6c526aa7c0916f515155ac6a1ec6b}{log\+\_\+in}} (const char $\ast$username, const char $\ast$password)
+\begin{DoxyCompactList}\small\item\em Set current user. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDatabase_af6703d198871182312510ce77cd964ce}\label{classDatabase_af6703d198871182312510ce77cd964ce}} 
+bool \mbox{\hyperlink{classDatabase_af6703d198871182312510ce77cd964ce}{log\+\_\+out}} ()
+\begin{DoxyCompactList}\small\item\em Save current user\textquotesingle{}s information and log him out. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDatabase_adf2351614b65e817fc97346616580bd1}\label{classDatabase_adf2351614b65e817fc97346616580bd1}} 
+\mbox{\hyperlink{classUser}{User}} $\ast$ \mbox{\hyperlink{classDatabase_adf2351614b65e817fc97346616580bd1}{get\+\_\+curr\+\_\+user}} () const
+\begin{DoxyCompactList}\small\item\em Get currently logged-\/in user. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDatabase_a83f497f8cf1b30d2c9b11ae18373592e}\label{classDatabase_a83f497f8cf1b30d2c9b11ae18373592e}} 
+bool \mbox{\hyperlink{classDatabase_a83f497f8cf1b30d2c9b11ae18373592e}{save\+\_\+destinations}} () const
+\begin{DoxyCompactList}\small\item\em Write destinations to destinations.\+db. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDatabase_a3a3972fda98e3d14f237ba2aaf8b035d}\label{classDatabase_a3a3972fda98e3d14f237ba2aaf8b035d}} 
+bool \mbox{\hyperlink{classDatabase_a3a3972fda98e3d14f237ba2aaf8b035d}{save\+\_\+user}} () const
+\begin{DoxyCompactList}\small\item\em Write user to $<$username$>$.db. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDatabase_a4cc87f4e2e39e46c3094f3e8c43ae9c4}\label{classDatabase_a4cc87f4e2e39e46c3094f3e8c43ae9c4}} 
+bool \mbox{\hyperlink{classDatabase_a4cc87f4e2e39e46c3094f3e8c43ae9c4}{add\+\_\+destination}} (\mbox{\hyperlink{classDestination}{Destination}} dest)
+\begin{DoxyCompactList}\small\item\em Add new destination to local vector; will be saved to file at close. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDatabase_acc48438e8fc1ea53bdb78e46350af946}\label{classDatabase_acc48438e8fc1ea53bdb78e46350af946}} 
+void \mbox{\hyperlink{classDatabase_acc48438e8fc1ea53bdb78e46350af946}{add\+\_\+trip\+\_\+curr\+\_\+user}} (\mbox{\hyperlink{classTrip}{Trip}} trip)
+\begin{DoxyCompactList}\small\item\em Add new trip for logged-\/in user. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDatabase_a5e7663eac547b43908dd767a39145a83}\label{classDatabase_a5e7663eac547b43908dd767a39145a83}} 
+\mbox{\hyperlink{classTrip}{Trip}} $\ast$ \mbox{\hyperlink{classDatabase_a5e7663eac547b43908dd767a39145a83}{get\+\_\+trip\+\_\+by\+\_\+user\+\_\+for\+\_\+dest}} (String username, const \mbox{\hyperlink{classDestination}{Destination}} \&existing\+\_\+destination)
+\begin{DoxyCompactList}\small\item\em Get trip by user for destination, if exists (else nullptr) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classDatabase}{Database}} class, responsible for storing currently logged in user and all destinations. 
+
+The rest of the necessary information is gathered from the user file(s). 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+database.\+hpp\item 
+database.\+cpp\end{DoxyCompactItemize}

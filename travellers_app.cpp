@@ -830,6 +830,8 @@ void TravellersApp::handle_command_help()
         std::cin.ignore();
         return;
     }
+
+    this->io_handler.print_help();
 }
 
 void TravellersApp::handle_command_log_out()

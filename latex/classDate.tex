@@ -1,0 +1,59 @@
+\hypertarget{classDate}{}\doxysection{Date Class Reference}
+\label{classDate}\index{Date@{Date}}
+
+
+A date, represented as day, month and year.  
+
+
+
+
+{\ttfamily \#include $<$date.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDate_a4e59ed4ba66eec61c27460c5d09fa1bd}\label{classDate_a4e59ed4ba66eec61c27460c5d09fa1bd}} 
+\mbox{\hyperlink{classDate_a4e59ed4ba66eec61c27460c5d09fa1bd}{Date}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classDate}{Date}} defaults to 01-\/01-\/2000. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDate_aa45f717af4c63d9b7eeaffc65445c41a}\label{classDate_aa45f717af4c63d9b7eeaffc65445c41a}} 
+\mbox{\hyperlink{classDate_aa45f717af4c63d9b7eeaffc65445c41a}{Date}} (const char $\ast$date\+\_\+string)
+\begin{DoxyCompactList}\small\item\em Fill out date from I\+SO 8601 string (only set if valid, else default to 01-\/01-\/2000) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDate_a86208bd42da6587c4b45ed93d688d483}\label{classDate_a86208bd42da6587c4b45ed93d688d483}} 
+int \mbox{\hyperlink{classDate_a86208bd42da6587c4b45ed93d688d483}{get\+\_\+day}} () const
+\begin{DoxyCompactList}\small\item\em Get date\textquotesingle{}s day. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDate_a89ae60bad421600e3ee901eb0df44975}\label{classDate_a89ae60bad421600e3ee901eb0df44975}} 
+int \mbox{\hyperlink{classDate_a89ae60bad421600e3ee901eb0df44975}{get\+\_\+month}} () const
+\begin{DoxyCompactList}\small\item\em Get date\textquotesingle{}s month. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDate_a9e77e9f49890449fea9aeb8114da95ff}\label{classDate_a9e77e9f49890449fea9aeb8114da95ff}} 
+int \mbox{\hyperlink{classDate_a9e77e9f49890449fea9aeb8114da95ff}{get\+\_\+year}} () const
+\begin{DoxyCompactList}\small\item\em Get date\textquotesingle{}s year. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDate_a2f2ac77bbcad966dbbe727dba78ae4ce}\label{classDate_a2f2ac77bbcad966dbbe727dba78ae4ce}} 
+bool \mbox{\hyperlink{classDate_a2f2ac77bbcad966dbbe727dba78ae4ce}{set\+\_\+date}} (const char $\ast$date\+\_\+string)
+\begin{DoxyCompactList}\small\item\em Set date via string (only if valid) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDate_a1bd50db5f9b2fddffb267ca2c2a57656}\label{classDate_a1bd50db5f9b2fddffb267ca2c2a57656}} 
+bool \mbox{\hyperlink{classDate_a1bd50db5f9b2fddffb267ca2c2a57656}{set\+\_\+date}} (int day, int month, int year)
+\begin{DoxyCompactList}\small\item\em Set date via numbers. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDate_aae9f83140e1e2bd3e600a85bda3d4dc0}\label{classDate_aae9f83140e1e2bd3e600a85bda3d4dc0}} 
+bool \mbox{\hyperlink{classDate_aae9f83140e1e2bd3e600a85bda3d4dc0}{is\+\_\+valid\+\_\+date\+\_\+string}} (const char $\ast$date\+\_\+string) const
+\begin{DoxyCompactList}\small\item\em Check if date string is valid. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDate_a1d4ecddadbe86cff16ceae3d3b7bb5f6}\label{classDate_a1d4ecddadbe86cff16ceae3d3b7bb5f6}} 
+bool \mbox{\hyperlink{classDate_a1d4ecddadbe86cff16ceae3d3b7bb5f6}{is\+\_\+valid\+\_\+date}} (int day, int month, int year) const
+\begin{DoxyCompactList}\small\item\em Check if is a valid date. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDate_a73472c21029c2b915268910549e287a5}\label{classDate_a73472c21029c2b915268910549e287a5}} 
+bool \mbox{\hyperlink{classDate_a73472c21029c2b915268910549e287a5}{is\+\_\+leap\+\_\+year}} (int year) const
+\begin{DoxyCompactList}\small\item\em Check if year is a leap year. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDate_ac2eefbb1524de2d74a7168c7033efca4}\label{classDate_ac2eefbb1524de2d74a7168c7033efca4}} 
+bool \mbox{\hyperlink{classDate_ac2eefbb1524de2d74a7168c7033efca4}{write\+\_\+to\+\_\+bin}} (std\+::ofstream \&of\+\_\+stream)
+\begin{DoxyCompactList}\small\item\em Write date as day-\/$>$month-\/$>$year in binary file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDate_aadaf8ac8581f3dcd931fe1adae73a0f9}\label{classDate_aadaf8ac8581f3dcd931fe1adae73a0f9}} 
+bool \mbox{\hyperlink{classDate_aadaf8ac8581f3dcd931fe1adae73a0f9}{read\+\_\+from\+\_\+bin}} (std\+::ifstream \&if\+\_\+stream)
+\begin{DoxyCompactList}\small\item\em Read from binary file as day-\/$>$month-\/$>$year. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A date, represented as day, month and year. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+date.\+hpp\item 
+date.\+cpp\end{DoxyCompactItemize}

@@ -101,9 +101,13 @@ void IOHandler::print_message(String message, String prefix) const
     }
 }
 
-void IOHandler::print_usage(String command, String usage) const
+void IOHandler::print_usage(String command, String usage, bool with_prefix) const
 {
-    std::cout << "Usage: ";
+    if (with_prefix)
+    {
+        std::cout << "Usage: ";
+    }
+
     std::cout << command;
 
     if (usage.get_len() > 0)
@@ -140,4 +144,45 @@ void IOHandler::print_unknown_command() const
 void IOHandler::print_success(String message) const
 {
     this->print_message(message, "Success");
+}
+
+void IOHandler::print_help() const
+{
+    this->print_message("\nTraveller's App commands:\n");
+
+    this->print_usage(COMMAND_REGISTER, USAGE_REGISTER, false);
+    this->print_message("  – adds a new user.\n");
+
+    this->print_usage(COMMAND_LOG_IN, USAGE_LOG_IN, false);
+    this->print_message("  – logs user in via username.\n");
+
+    this->print_usage(COMMAND_DESTINATIONS, "", false);
+    this->print_message("  – displays all destinations with their name, number of visits and average rating.\n");
+
+    this->print_usage(COMMAND_ADD_DESTINATION, USAGE_ADD_DESTINATION, false);
+    this->print_message("  – adds a new destination to the database.\n");
+
+    this->print_usage(COMMAND_DESTINATION_INFO, USAGE_DESTINATION_INFO, false);
+    this->print_message("  – displays additional information about a destination, including visits by friends.\n");
+
+    this->print_usage(COMMAND_MY_TRIPS, "", false);
+    this->print_message("  – displays all trips of current user.\n");
+
+    this->print_usage(COMMAND_ADD_TRIP, "", false);
+    this->print_message("  – interactive command to add a new trip.\n");
+
+    this->print_usage(COMMAND_MY_FRIENDS, "", false);
+    this->print_message("  – displays friends of current user.\n");
+
+    this->print_usage(COMMAND_ADD_FRIEND, USAGE_ADD_FRIEND, false);
+    this->print_message("  – adds new friend for user.\n");
+
+    this->print_usage(COMMAND_LOG_OUT, "", false);
+    this->print_message("  – logs current user out.\n");
+
+    this->print_usage(COMMAND_HELP, "", false);
+    this->print_message("  – shows possible commands of application.\n");
+
+    this->print_usage(COMMAND_EXIT, "", false);
+    this->print_message("  – exits the application.\n");
 }

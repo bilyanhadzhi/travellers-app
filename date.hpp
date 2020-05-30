@@ -4,6 +4,8 @@
 #include <iostream>
 #include <fstream>
 
+//! A date, represented as day, month and year
+
 class Date
 {
 private:
@@ -11,8 +13,9 @@ private:
     int month;
     int year;
 public:
-    //! Date defaults to 01.01.1960
+    //! Date defaults to 01-01-2000
     Date();
+    //! Fill out date from ISO 8601 string (only set if valid, else default to 01-01-2000)
     Date(const char* date_string);
     //! Get date's day
     int get_day() const;

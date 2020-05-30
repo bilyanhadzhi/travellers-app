@@ -1,6 +1,8 @@
 #ifndef TRAVELLERS_APP_HPP
 #define TRAVELLERS_APP_HPP
 
+//! The outermost class of the application
+
 #include "io_handler.hpp"
 #include "user.hpp"
 #include "database.hpp"
@@ -8,9 +10,12 @@
 class TravellersApp
 {
 private:
+    //! Database class, responsible for storing currently logged in user and all destinations.
+    /*! The rest of the necessary information is gathered from the user file. */
     Database database;
+    //! Input/output handler class, responsible for parsing command-line input and standardizing output.
     IOHandler io_handler;
-    // Returns whether a user is currently logged in
+    //! Return whether a user is currently logged in
     bool is_logged_in();
     void handle_command_register();
     void handle_command_log_in();

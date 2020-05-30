@@ -1,0 +1,49 @@
+\hypertarget{classDestination}{}\doxysection{Destination Class Reference}
+\label{classDestination}\index{Destination@{Destination}}
+
+
+Simple destination class, containing its name, number of visits, and rating.  
+
+
+
+
+{\ttfamily \#include $<$destination.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDestination_a843892c8f801f886d6489923ab38496e}\label{classDestination_a843892c8f801f886d6489923ab38496e}} 
+\mbox{\hyperlink{classDestination_a843892c8f801f886d6489923ab38496e}{Destination}} (String name=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em The most-\/used constructor, for when creating a new destination. (can be default for array purposes) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDestination_aee055972d3be3f2cb3a820f20bffebf9}\label{classDestination_aee055972d3be3f2cb3a820f20bffebf9}} 
+\mbox{\hyperlink{classDestination_aee055972d3be3f2cb3a820f20bffebf9}{Destination}} (String name, double acc\+\_\+rating, int num\+\_\+visits)
+\begin{DoxyCompactList}\small\item\em Full constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDestination_ac90bcf41fcb4282349c00214d1ae7d11}\label{classDestination_ac90bcf41fcb4282349c00214d1ae7d11}} 
+bool \mbox{\hyperlink{classDestination_ac90bcf41fcb4282349c00214d1ae7d11}{read\+\_\+from\+\_\+bin}} (std\+::ifstream \&if\+\_\+stream)
+\begin{DoxyCompactList}\small\item\em Load destination from binary file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDestination_a5c15a1d200a2169091aa6fc128072b2e}\label{classDestination_a5c15a1d200a2169091aa6fc128072b2e}} 
+bool \mbox{\hyperlink{classDestination_a5c15a1d200a2169091aa6fc128072b2e}{write\+\_\+to\+\_\+bin}} (std\+::ofstream \&of\+\_\+stream) const
+\begin{DoxyCompactList}\small\item\em Write destination to binary file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDestination_ac5e5225c4a775484983068aea0d00d67}\label{classDestination_ac5e5225c4a775484983068aea0d00d67}} 
+String \mbox{\hyperlink{classDestination_ac5e5225c4a775484983068aea0d00d67}{get\+\_\+name}} () const
+\begin{DoxyCompactList}\small\item\em Get destination name. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDestination_a2354fa527c0c0d34803de0bd562f8244}\label{classDestination_a2354fa527c0c0d34803de0bd562f8244}} 
+int \mbox{\hyperlink{classDestination_a2354fa527c0c0d34803de0bd562f8244}{get\+\_\+num\+\_\+visits}} () const
+\begin{DoxyCompactList}\small\item\em Get number of visits of destination. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDestination_a1534d56c39bb022aea87c9205ec12f2f}\label{classDestination_a1534d56c39bb022aea87c9205ec12f2f}} 
+double \mbox{\hyperlink{classDestination_a1534d56c39bb022aea87c9205ec12f2f}{get\+\_\+avg\+\_\+rating}} () const
+\begin{DoxyCompactList}\small\item\em Get average rating of trips to destination. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDestination_a607ad8c8c320030ba38d9197d01bb231}\label{classDestination_a607ad8c8c320030ba38d9197d01bb231}} 
+bool \mbox{\hyperlink{classDestination_a607ad8c8c320030ba38d9197d01bb231}{add\+\_\+visit}} (double rating)
+\begin{DoxyCompactList}\small\item\em Add a visit entry with a rating. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Simple destination class, containing its name, number of visits, and rating. 
+
+Due to the nature of the file structure, trips are not stored as part of this class. Trips are stored for each user, instead of for each destination. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+destination.\+hpp\item 
+destination.\+cpp\end{DoxyCompactItemize}

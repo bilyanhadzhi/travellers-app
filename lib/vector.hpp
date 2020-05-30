@@ -5,6 +5,8 @@
 #include <cassert>
 #include <iostream>
 
+//! A template vector with capabilities of storing elements of many types
+
 template<typename T>
 class Vector
 {
@@ -21,9 +23,13 @@ private:
     void shift_left_from(int i);
 
 public:
+    //! Create an empty vector
     Vector();
+    //! Copy constructor
     Vector(const Vector& other);
+    //! Make copy of existing vector
     Vector<T>& operator=(const Vector& other);
+    //! Free memory of all elements
     ~Vector();
     //! Restore vector to initial state
     void empty_vector();

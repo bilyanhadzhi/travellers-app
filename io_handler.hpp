@@ -4,6 +4,8 @@
 #include "lib/string.hpp"
 #include "lib/vector.hpp"
 
+//! A helper class to handle parsing commands and arguments.
+
 class IOHandler
 {
 private:
@@ -15,7 +17,7 @@ private:
 public:
     //! Get first string from the console
     void input_command();
-    //! Get argument list (works for files, too)
+    //! Get arguments, separated by space
     void input_args(std::istream& i_stream);
     //! Get current command
     String get_command() const;
@@ -28,7 +30,7 @@ public:
     //! Print shell prompt
     void print_prompt() const;
     //! Print usage of command
-    void print_usage(String command, String usage = "") const;
+    void print_usage(String command, String usage = "", bool with_prefix = true) const;
     //! Print error with description
     void print_error(String desc) const;
     //! Print that there is no logged in user
@@ -39,6 +41,8 @@ public:
     void print_unknown_command() const;
     //! Print success with message
     void print_success(String message) const;
+    //! Print help on how to use the app
+    void print_help() const;
 };
 
 #endif // IO_HANDLER_HPP

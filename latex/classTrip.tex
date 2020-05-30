@@ -1,0 +1,57 @@
+\hypertarget{classTrip}{}\doxysection{Trip Class Reference}
+\label{classTrip}\index{Trip@{Trip}}
+
+
+Contains information about a \mbox{\hyperlink{classTrip}{Trip}} from a \mbox{\hyperlink{classUser}{User}}.  
+
+
+
+
+{\ttfamily \#include $<$trip.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTrip_ab2e2af21224ae68912f6898dcbb6d95b}\label{classTrip_ab2e2af21224ae68912f6898dcbb6d95b}} 
+\mbox{\hyperlink{classTrip_ab2e2af21224ae68912f6898dcbb6d95b}{Trip}} (String dest\+\_\+name, \mbox{\hyperlink{classDate}{Date}} start\+\_\+date, \mbox{\hyperlink{classDate}{Date}} end\+\_\+date, int rating, \mbox{\hyperlink{classComment}{Comment}} comment, Vector$<$ String $>$ photos)
+\begin{DoxyCompactList}\small\item\em Constructor for creating a new \mbox{\hyperlink{classTrip}{Trip}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTrip_ad1ab91a38dd60cefbea35398b43a92f3}\label{classTrip_ad1ab91a38dd60cefbea35398b43a92f3}} 
+\mbox{\hyperlink{classTrip_ad1ab91a38dd60cefbea35398b43a92f3}{Trip}} (std\+::ifstream \&if\+\_\+stream)
+\begin{DoxyCompactList}\small\item\em Constructor for creating a \mbox{\hyperlink{classTrip}{Trip}} instance out of a file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTrip_ae82723361cdfcee86ed06a5097251d65}\label{classTrip_ae82723361cdfcee86ed06a5097251d65}} 
+bool \mbox{\hyperlink{classTrip_ae82723361cdfcee86ed06a5097251d65}{write\+\_\+to\+\_\+bin}} (std\+::ofstream \&if\+\_\+stream)
+\begin{DoxyCompactList}\small\item\em Write the trip\textquotesingle{}s information to a binary file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTrip_a8e09dc33bbd85ad3c75addb26f72f075}\label{classTrip_a8e09dc33bbd85ad3c75addb26f72f075}} 
+bool \mbox{\hyperlink{classTrip_a8e09dc33bbd85ad3c75addb26f72f075}{read\+\_\+from\+\_\+bin}} (std\+::ifstream \&of\+\_\+stream)
+\begin{DoxyCompactList}\small\item\em Load the trip\textquotesingle{}s information from a binary file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTrip_a975ae81c691c4c26fa35753f127c8990}\label{classTrip_a975ae81c691c4c26fa35753f127c8990}} 
+\mbox{\hyperlink{classComment}{Comment}} \mbox{\hyperlink{classTrip_a975ae81c691c4c26fa35753f127c8990}{get\+\_\+comment}} () const
+\begin{DoxyCompactList}\small\item\em Get copy of the trip\textquotesingle{}s comment. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTrip_a9ecddaa142fa8aa0a9f694539c05d079}\label{classTrip_a9ecddaa142fa8aa0a9f694539c05d079}} 
+Vector$<$ String $>$ \mbox{\hyperlink{classTrip_a9ecddaa142fa8aa0a9f694539c05d079}{get\+\_\+photo\+\_\+names}} () const
+\begin{DoxyCompactList}\small\item\em Get copy of photo filenames list. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTrip_aa03afc5daba1d6e56c52b86c418667f5}\label{classTrip_aa03afc5daba1d6e56c52b86c418667f5}} 
+\mbox{\hyperlink{classDate}{Date}} \mbox{\hyperlink{classTrip_aa03afc5daba1d6e56c52b86c418667f5}{get\+\_\+start\+\_\+date}} () const
+\begin{DoxyCompactList}\small\item\em Get beginning date of trip. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTrip_a77af8a1b9948b29affca35d542464ff8}\label{classTrip_a77af8a1b9948b29affca35d542464ff8}} 
+\mbox{\hyperlink{classDate}{Date}} \mbox{\hyperlink{classTrip_a77af8a1b9948b29affca35d542464ff8}{get\+\_\+end\+\_\+date}} () const
+\begin{DoxyCompactList}\small\item\em Get end date of trip (can only be $>$= beginning) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTrip_ad4d75b0aea1cfc9e9b7384bf1a28c724}\label{classTrip_ad4d75b0aea1cfc9e9b7384bf1a28c724}} 
+String \mbox{\hyperlink{classTrip_ad4d75b0aea1cfc9e9b7384bf1a28c724}{get\+\_\+destination\+\_\+name}} () const
+\begin{DoxyCompactList}\small\item\em Get copy of the destination\textquotesingle{}s name. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTrip_a50ca97cc2ab231096a1d89c5c5c8125f}\label{classTrip_a50ca97cc2ab231096a1d89c5c5c8125f}} 
+int \mbox{\hyperlink{classTrip_a50ca97cc2ab231096a1d89c5c5c8125f}{get\+\_\+rating}} () const
+\begin{DoxyCompactList}\small\item\em Get copy of the rating of this \mbox{\hyperlink{classTrip}{Trip}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains information about a \mbox{\hyperlink{classTrip}{Trip}} from a \mbox{\hyperlink{classUser}{User}}. 
+
+Each trip has a destination name, a time period (two \mbox{\hyperlink{classDate}{Date}} objects), rating (1-\/5), a \mbox{\hyperlink{classComment}{Comment}} object and a list of photo filenames. The comment has the username of the \mbox{\hyperlink{classUser}{User}} who made the visit, allowing identification later on.
+
+The comment can be empty, as well as the photo filenames list. The beginning date can match the ending date for a trip period of a single day. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+trip.\+hpp\item 
+trip.\+cpp\end{DoxyCompactItemize}

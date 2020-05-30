@@ -12,6 +12,10 @@ Date::Date()
 
 Date::Date(const char* date_string)
 {
+    this->day = 1;
+    this->month = 1;
+    this->year = 2000;
+
     this->set_date(date_string);
 }
 

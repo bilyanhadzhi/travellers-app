@@ -5,6 +5,19 @@
 #include "lib/vector.hpp"
 #include "trip.hpp"
 
+//! The user class, which stores its username, email, password hash(!), trips and friends
+/*!
+    Trips are loaded from the 'personal database' of the user, i.e. the file with the same
+    name at path db/users/
+
+    Friends are not stored as user pointers, but instead as simply their usernames,
+    in order to keep the personal database of the user lean.
+    It is Database's responsibility to load users from files, all
+    a user knows about his friends are their usernames.
+
+    The passwords are hashed via bcrypt and stored as such.
+*/
+
 class User
 {
 private:
@@ -18,26 +31,27 @@ private:
     bool is_valid_username(String username) const;
     void set_password_hash(String password_hash);
 public:
+    //! Create an all-empty user (for array purposes)
     User();
     //! Create new user
     User(String username, String email, String password_hash);
-    //! Set new username for user (only if valid and free)
+    //! Set username for user (only if valid and free)
     bool set_username(String username);
-    //! Set new email for user(only if valid)
+    //! Set email for user (only if valid)
     bool set_email(String email);
-    //! Set new password (hash) for user (only if valid)
+    //! Set password (hash) for user (only if valid)
     bool set_password(String password);
-    //! Get username (as String)
+    //! Get username
     String get_username() const;
-    //! Get email (as String)
+    //! Get email
     String get_email() const;
-    //! Get password hash (as String)
+    //! Get password hash
     String get_password_hash() const;
-    //! Get friends of user
+    //! Get copy of usernames of user's friends
     Vector<String> get_friends_usernames() const;
-    //! Get trips for user
+    //! Get copy of trips for user
     Vector<Trip> get_trips() const;
-    //! Add user information to end of (binary) file
+    //! Append user username, email, and password hash to binary file
     bool append_to_bin(std::ofstream& of_stream) const;
     //! Return whether password matches user's
     bool is_correct_password(const char* password) const;

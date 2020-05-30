@@ -20,8 +20,8 @@
 // Commands usage
 #define USAGE_REGISTER          "<username> <email> <password>"
 #define USAGE_LOG_IN            "<username> <password>"
-#define USAGE_ADD_DESTINATION   "<name | \"Name with spaces\">"
-#define USAGE_DESTINATION_INFO  "<name | \"Name with spaces\">"
+#define USAGE_ADD_DESTINATION   "<name|\"Name with spaces\">"
+#define USAGE_DESTINATION_INFO  "<name|\"Name with spaces\">"
 #define USAGE_ADD_FRIEND        "<name>"
 
 #define MESSAGE_EXIT            "Bye! :)"

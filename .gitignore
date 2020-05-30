@@ -31,10 +31,6 @@
 *.out
 *.app
 
-# doxygen
-html/
-latex/
-
 # CMake
 CMakeLists.txt.user
 CMakeCache.txt

@@ -4,6 +4,8 @@
 #include <iostream>
 #include <string>
 
+//! A helper class which makes it much easier to work with strings.
+
 class String
 {
 private:
@@ -18,11 +20,15 @@ private:
     void increase_capacity();
 
 public:
+    //! Constructor for an empty string
     String();
+    //! Constructor from a C-string
     String(const char* str);
+    //! Copy constructor
     String(const String& other);
+    //! Constructor to copy from an std::string
     String(const std::string std_string);
-    String(double number);
+    //! Make copy of existing string
     String& operator=(const String& other);
     //! Replace string value with str (frees old value)
     String& operator=(const char* str);
@@ -54,6 +60,7 @@ public:
     String& operator+=(const String to_append);
     //! Append c-string to string
     String& operator+=(const char* to_append);
+    //! Free all memory taken by string
     ~String();
     //! Set new value for string and update length (frees old value)
     void set_value(const char* value);
